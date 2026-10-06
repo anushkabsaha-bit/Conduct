@@ -11,8 +11,8 @@ export const Mark = ({ className = "w-6 h-6" }) => (
 const links = [
   ["Evidence", "#built"],
   ["Growth OS", "#growth-os"],
-  ["Radar", "#radar"],
   ["The Desk", "#agents"],
+  ["Why", "#why"],
   ["Anniversary", "#anniversary"],
 ];
 

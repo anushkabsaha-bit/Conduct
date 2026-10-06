@@ -25,14 +25,19 @@ export default function Final() {
         <div className="md:col-span-7 space-y-6">
           <Reveal>
             <p className="font-mono text-sm md:text-base leading-relaxed text-linen/85 max-w-xl">
-              And whenever I see something that could be better, my first thought is usually:{" "}
-              <span className="text-tangelo">"If I were there, what would I do differently?"</span> That's probably why
-              I keep building things.
+              I think I'm at my best when I can look at something and think:{" "}
+              <span className="text-tangelo">that could be better — what would I do differently?</span>
             </p>
           </Reveal>
-          <Reveal delay={0.1}>
+          <Reveal delay={0.08}>
+            <p className="font-mono text-sm md:text-base leading-relaxed text-linen/85 max-w-xl">
+              That's probably why I keep building things.
+            </p>
+          </Reveal>
+          <Reveal delay={0.14}>
             <p className="font-serifit italic text-xl md:text-2xl text-linen max-w-xl">
-              I'd love to find out what I'd build at Conduct.
+              And Conduct has been the company I've wanted to build alongside for a while. Now I want to see what I
+              could build here.
             </p>
           </Reveal>
         </div>

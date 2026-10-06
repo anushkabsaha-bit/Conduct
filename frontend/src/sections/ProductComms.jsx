@@ -194,12 +194,34 @@ export default function ProductComms() {
               ))}
             </div>
           </div>
-          <div className="md:col-span-5 flex items-start">
-            <Reveal delay={0.1}>
-              <p className="font-serifit italic text-xl md:text-2xl leading-snug text-chocolate border-l-4 border-tangelo pl-5">
-                This isn't content multiplication for the sake of it. Different people need different entry points into
-                the same idea — and each version has to be true to the person reading it.
+          <div className="md:col-span-5">
+            <Reveal>
+              <p className="font-serifit italic text-xl md:text-2xl leading-snug text-chocolate border-l-4 border-tangelo pl-5 mb-8">
+                One story → multiple audiences → multiple formats. Adapted, never reposted.
               </p>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-chocolate/60 mb-4">Where it can live</p>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "LinkedIn",
+                  "Substack",
+                  "Medium",
+                  "Short-form video",
+                  "Founder channels",
+                  "Employee channels",
+                  "Website",
+                  "Events",
+                  "Community",
+                  "Sales enablement",
+                  "Employer brand",
+                  "Customer advocacy",
+                ].map((c) => (
+                  <span key={c} className="font-mono text-[10px] md:text-[11px] tracking-[0.1em] uppercase border border-chocolate/50 px-3 py-2 text-chocolate hover:bg-chocolate hover:text-linen transition-colors cursor-default">
+                    {c}
+                  </span>
+                ))}
+              </div>
             </Reveal>
           </div>
         </div>

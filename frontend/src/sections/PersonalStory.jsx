@@ -40,6 +40,10 @@ export default function PersonalStory() {
                 I published it and how I built the world around the stories. I watched what made people return. It grew,
                 organically, to around seventy thousand readers.
               </p>
+              <p className="font-mono text-sm md:text-base leading-relaxed text-linen/85 max-w-xl mt-5">
+                I learned that people don't just come back for content. They come back for{" "}
+                <span className="text-tangelo">a world. A voice. A feeling of belonging.</span>
+              </p>
             </Reveal>
           </div>
         </div>
@@ -99,7 +103,8 @@ export default function PersonalStory() {
             </Reveal>
             <Reveal delay={0.16}>
               <p className="font-serifit italic text-xl md:text-2xl text-linen border-l-4 border-tangelo pl-5 max-w-xl">
-                Why they care. Why they feel like they belong. That's the whole job, everywhere I've done it.
+                Different projects. Same instinct. Why do people care? Why do they come back? How do you make something
+                feel like it belongs to them too?
               </p>
             </Reveal>
           </div>

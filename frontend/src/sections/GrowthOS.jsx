@@ -41,11 +41,10 @@ export default function GrowthOS() {
         <div className="md:col-span-7">
           <Reveal>
             <p className="font-mono text-sm md:text-base leading-relaxed text-linen/85 mb-6 max-w-2xl">
-              I looked at Conduct from the outside and started asking the question I'd ask if I were already on the
-              team:{" "}
-              <span className="text-tangelo font-bold">do people actually understand Conduct?</span> So I analysed every
-              Conduct LinkedIn post from April to 28 August 2026 and built a slightly ridiculous Growth Operating System
-              out of what I found.
+              I wasn't waiting for someone to give me a brief. I was curious about Conduct. So I started investigating —
+              every Conduct LinkedIn post from April to 28 August 2026 — and asking the question I'd ask if I were
+              already on the team:{" "}
+              <span className="text-tangelo font-bold">do people actually understand Conduct?</span>
             </p>
           </Reveal>
           <Reveal delay={0.1}>
@@ -59,6 +58,18 @@ export default function GrowthOS() {
               Read the full OS — it's live
               <span aria-hidden="true" className="transition-transform duration-300 group-hover:rotate-45">↗</span>
             </a>
+          </Reveal>
+          <Reveal delay={0.16}>
+            <div className="border-l-4 border-tangelo pl-5 mt-10 max-w-xl">
+              <p className="font-mono text-sm leading-relaxed text-linen/85 mb-4">
+                I'd been interested in Conduct for a long time. When I saw the role, I became curious about what I would
+                actually do if I were already on the team. So I built it. That is probably the best explanation of how I
+                work.
+              </p>
+              <p className="font-serifit italic text-xl md:text-2xl text-botticelli">
+                I don't always wait for the brief. Sometimes the question is enough.
+              </p>
+            </div>
           </Reveal>
         </div>
         <div className="md:col-span-5">
@@ -113,7 +124,7 @@ export default function GrowthOS() {
         <div className="md:col-span-6 flex flex-col justify-between">
           <Reveal delay={0.1}>
             <div className="space-y-0 mb-10">
-              {["Understanding", "Memory", "Curiosity", "Action"].map((s, i) => (
+              {["Understand", "Remember", "Care", "Act"].map((s, i) => (
                 <div key={s} className="flex items-center gap-4 py-3 border-b border-linen/25">
                   <span className="font-mono text-xs text-tangelo w-6">0{i + 1}</span>
                   <span className="font-display uppercase text-2xl md:text-3xl text-linen">{s}</span>

@@ -7,8 +7,11 @@ const views = [
   { id: "today", label: "Today", agent: "Ana" },
   { id: "content", label: "Content", agent: "Berdine + Agatha" },
   { id: "product", label: "Product", agent: "Edith" },
+  { id: "customers", label: "Customers", agent: "Edith" },
   { id: "opportunities", label: "Opportunities", agent: "Catherine" },
-  { id: "challenge", label: "Challenge", agent: "Diana" },
+  { id: "campaigns", label: "Campaigns", agent: "Diana" },
+  { id: "community", label: "Community", agent: "—" },
+  { id: "experiments", label: "Experiments", agent: "Black Box" },
 ];
 
 const roster = [
@@ -30,22 +33,26 @@ const edithDone = [
   "What actually changed?",
   "What problem existed before?",
   "Who experienced it?",
-  "What does the customer actually care about?",
+  "What does the customer care about?",
   "What is technically interesting?",
   "What evidence do we have?",
   "What metrics / proof points exist?",
   "Who owns each input?",
-  "What can we actually say publicly?",
+  "What can we say publicly?",
 ];
 
 const edithTodo = ["Customer approval", "Final quote", "Product screenshots", "Engineer review", "Final CTA"];
 
-const dianaQs = [
-  "Is this actually memorable?",
-  "Does the audience understand the joke?",
-  "Could this make Conduct look gimmicky?",
-  "Can we execute it properly?",
-  "What would make us kill it?",
+const judgement = [
+  "Observe",
+  "Agents find signal",
+  "Anushka questions it",
+  "Agents challenge it",
+  "Anushka makes a call",
+  "Team executes",
+  "Measure",
+  "Learn",
+  "Repeat",
 ];
 
 const flow = [
@@ -60,6 +67,12 @@ const flow = [
   ["Ship", ""],
 ];
 
+const Status = ({ children }) => (
+  <p className="inline-block font-mono text-[11px] tracking-[0.18em] uppercase bg-botticelli text-ink px-3 py-1.5">
+    Status: {children}
+  </p>
+);
+
 const Card = ({ from, tone = "default", children }) => {
   const tones = {
     default: "border-linen/30 text-linen",
@@ -70,14 +83,13 @@ const Card = ({ from, tone = "default", children }) => {
   return (
     <div className={`border p-5 md:p-6 ${tones[tone]}`}>
       <p className={`font-mono text-[10px] tracking-[0.2em] uppercase mb-3 ${labelTones[tone]}`}>{from}</p>
-      <div className="font-mono text-sm leading-relaxed">{children}</div>
+      <div className="font-mono text-sm leading-relaxed space-y-3">{children}</div>
     </div>
   );
 };
 
 export default function AgentDesk() {
-  const [view, setView] = useState("today");
-  const [posted, setPosted] = useState(null);
+  const [view, setView] = useState("content");
   const [showWhy, setShowWhy] = useState(false);
   const [catherineDecision, setCatherineDecision] = useState(null);
 
@@ -89,29 +101,11 @@ export default function AgentDesk() {
 
       <Reveal>
         <p className="font-serifit italic text-xl md:text-2xl text-linen max-w-2xl mb-4">
-          I built the system. The agents give me more eyes. I make the call.
+          Six specialised systems that help me make better decisions. They surface, I challenge, I call it.
         </p>
         <p className="font-mono text-[11px] text-linen/50 italic mb-14 max-w-2xl">
-          What follows is a demonstration of how the desk runs — not historical results.
+          The desk below is a simulation — an example of how the system works, not a record of real conversations.
         </p>
-      </Reveal>
-
-      <Reveal className="mb-14">
-        <div data-testid="operating-layer-exhibit" className="border-2 border-linen/50 bg-linen p-3 md:p-4 spotlight">
-          <img
-            src="https://customer-assets-lxgj4vgw.emergentagent.net/job_notice-ship-learn/artifacts/3fd09ffa6b4d4375_13030139-DE02-4674-A73C-A003CE806EE2.png"
-            alt="The operating layer diagram from the Conduct Growth OS — Ana delegating to Agatha, Berdine, Catherine, Diana and Edith, with insight flowing back through synthesis"
-            className="w-full h-auto block"
-          />
-          <div className="flex flex-wrap items-baseline justify-between gap-3 pt-3 px-1">
-            <p className="font-mono text-[10px] tracking-[0.16em] uppercase text-chocolate/60">
-              Fig. 09 — the actual operating layer, straight from the OS. Not a redraw.
-            </p>
-            <p className="font-mono text-[10px] tracking-[0.14em] uppercase text-chocolate/60">
-              Delegation ↓ · Insight ↑ · Collaboration ↔ · I make the final call
-            </p>
-          </div>
-        </div>
       </Reveal>
 
       <div data-testid="agent-desk" className="border-2 border-linen/40 bg-ink/40">
@@ -150,7 +144,7 @@ export default function AgentDesk() {
             </div>
           </aside>
 
-          <div className="p-5 md:p-8 min-h-[420px]">
+          <div className="p-5 md:p-8 min-h-[460px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={view}
@@ -162,8 +156,8 @@ export default function AgentDesk() {
               >
                 {view === "today" && (
                   <div className="space-y-5 max-w-2xl">
-                    <Card from="Ana — main growth layer" tone="agent">
-                      <p className="mb-3 text-linen/85">
+                    <Card from="Ana — Main Growth Agent / EA" tone="agent">
+                      <p className="text-linen/85">
                         Filters everything. Tells me what matters, what's working, what's not, what others are finding
                         and what to do next. Delegates when she needs more clarity or deeper investigation.
                       </p>
@@ -190,44 +184,37 @@ export default function AgentDesk() {
 
                 {view === "content" && (
                   <div className="space-y-4 max-w-2xl">
+                    <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-linen/40">10:17</p>
                     <Card from="Ana → Anushka" tone="agent">
-                      <p>"Did you post the Substack piece yet?"</p>
-                      <div className="flex gap-2 mt-3">
-                        {["Yes", "Not yet"].map((opt) => (
-                          <button
-                            key={opt}
-                            data-testid={`desk-reply-${opt.toLowerCase().replace(/\s/g, "-")}`}
-                            onClick={() => setPosted(opt)}
-                            className={`px-4 py-2 text-[11px] tracking-[0.16em] uppercase border transition-colors ${
-                              posted === opt ? "bg-tangelo border-tangelo text-linen" : "border-linen/40 text-linen/80 hover:border-linen"
-                            }`}
-                          >
-                            {opt}
-                          </button>
-                        ))}
-                      </div>
-                      {posted && <p className="text-[11px] text-botticelli mt-3">Noted. {posted === "Yes" ? "Agatha will watch the first hour." : "Berdine's edit is below whenever you're ready."}</p>}
-                    </Card>
-                    <Card from="Berdine">
-                      "I think the opening is doing too much. The idea is strong. I'd test the shorter hook first."
-                    </Card>
-                    <Card from="Agatha">
-                      "Similar posts have performed better when the first line creates a clear tension. Worth testing."
+                      <p>"Did you post the Substack piece?"</p>
                     </Card>
                     <Card from="Anushka — the operator" tone="operator">
-                      <p>"Let's test the shorter version."</p>
-                      <p className="text-[11px] tracking-[0.18em] uppercase mt-3 text-linen/85">Status: ready to ship</p>
+                      <p>"Not yet. I don't like the opening."</p>
+                    </Card>
+                    <Card from="Berdine">
+                      <p>"I agree. The idea is good. The first line is doing too much."</p>
+                      <div className="border border-botticelli/40 mt-2">
+                        <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-botticelli px-4 pt-3">Suggested edit</p>
+                        <p className="px-4 py-2 text-linen/50 line-through text-xs">"Enterprise software has become increasingly complex…"</p>
+                        <p className="px-4 pb-3 text-linen text-sm">"Why does changing one thing in enterprise software still take so long?"</p>
+                      </div>
+                    </Card>
+                    <Card from="Anushka — the operator" tone="operator">
+                      <p>"Better. Ship the shorter version."</p>
+                      <Status>Ready to publish</Status>
                     </Card>
                   </div>
                 )}
 
                 {view === "product" && (
-                  <div className="max-w-2xl space-y-5">
-                    <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-botticelli">
-                      New product story — process documentation × customer
-                    </p>
+                  <div className="max-w-2xl space-y-4">
+                    <Card from="Edith — Product, Customer & Storytelling Intelligence" tone="agent">
+                      <p>"Customer call flagged a recurring problem. There may be a story here."</p>
+                    </Card>
                     <div className="border border-linen/25 p-5" data-testid="edith-checklist">
-                      <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-linen/50 mb-4">Edith checklist</p>
+                      <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-linen/50 mb-4">
+                        Edith checklist — process documentation × customer
+                      </p>
                       <div className="grid sm:grid-cols-2 gap-x-6">
                         {[...edithDone.map((t) => ({ t, done: true })), ...edithTodo.map((t) => ({ t, done: false }))].map((item) => (
                           <p key={item.t} className={`flex items-start gap-2.5 py-1.5 font-mono text-xs ${item.done ? "text-linen/85" : "text-linen/45"}`}>
@@ -237,31 +224,45 @@ export default function AgentDesk() {
                         ))}
                       </div>
                     </div>
-                    <Card from="Edith → Berdine" tone="agent">
-                      "There is a customer story here. I'd lead with the problem rather than the feature."
+                    <Card from="Berdine">"I'd lead with the problem, not the feature."</Card>
+                    <Card from="Diana">
+                      "Potentially interesting. But does the story still work if we remove the product language?"
                     </Card>
-                    <Card from="Berdine → Anushka">"Agree. I'd make the customer problem the opening."</Card>
+                    <Card from="Ana">"Worth developing. Priority: HIGH."</Card>
                     <Card from="Anushka — the operator" tone="operator">
-                      <p className="tracking-[0.14em] uppercase text-xs">Decision: build story</p>
+                      <p>"Agreed. Let's build the customer story."</p>
+                      <Status>In production</Status>
+                    </Card>
+                  </div>
+                )}
+
+                {view === "customers" && (
+                  <div className="max-w-2xl space-y-4">
+                    <Card from="Edith" tone="agent">
+                      <p>
+                        "One customer story in production — checklist at 9 of 14. Waiting on customer approval and
+                        product review before anything ships."
+                      </p>
+                      <p className="text-linen/60 text-xs">Nothing goes out with a hole in it. See the Product view for the live checklist.</p>
                     </Card>
                   </div>
                 )}
 
                 {view === "opportunities" && (
                   <div className="max-w-2xl space-y-5">
-                    <Card from="Catherine — market + opportunity radar" tone="agent">
-                      <p className="mb-3 text-linen/85">
+                    <Card from="Catherine — Market & Representation Intelligence" tone="agent">
+                      <p className="text-linen/85">
                         Scouts events, communities, companies, people and moments across the UK & Europe where Conduct
                         should be represented. Looks at who will be there, tech concentration, relevance, contacts,
                         permissions and practical requirements.
                       </p>
                     </Card>
                     <Card from="Catherine → Anushka">
-                      <p className="mb-2">
+                      <p>
                         "Signal: an enterprise-tech community is gathering next month. Audience overlap looks high. I
                         can pull speakers, deadlines and contacts if this is worth your time."
                       </p>
-                      <div className="flex gap-2 mt-4">
+                      <div className="flex gap-2 mt-2">
                         {["Investigate", "Park it"].map((opt) => (
                           <button
                             key={opt}
@@ -276,7 +277,7 @@ export default function AgentDesk() {
                         ))}
                       </div>
                       {catherineDecision && (
-                        <p className="text-[11px] text-botticelli mt-3">
+                        <p className="text-[11px] text-botticelli">
                           {catherineDecision === "Investigate" ? "On it — full brief by tomorrow morning." : "Logged. I'll flag it if anything changes."}
                         </p>
                       )}
@@ -284,31 +285,52 @@ export default function AgentDesk() {
                   </div>
                 )}
 
-                {view === "challenge" && (
-                  <div className="max-w-2xl space-y-5">
-                    <Card from="The idea" tone="default">
+                {view === "campaigns" && (
+                  <div className="max-w-2xl space-y-4">
+                    <Card from="The idea on the table">
                       <p className="font-display uppercase text-xl md:text-2xl text-linen">SAP Score — a photo booth at London Tech Week</p>
-                      <p className="text-linen/70 mt-2 text-xs">
-                        A Polaroid plus a completely ridiculous "SAP Score" for your enterprise landscape.
-                      </p>
+                      <p className="text-linen/70 text-xs">A Polaroid plus a completely ridiculous "SAP Score" for your enterprise landscape.</p>
                     </Card>
-                    <div className="border border-linen/25 p-5">
-                      <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-botticelli mb-4">
-                        Diana — creative strategy + stress test. Her job is to try to kill it.
-                      </p>
-                      {dianaQs.map((q) => (
-                        <p key={q} className="font-mono text-sm text-linen/85 py-2 border-b border-linen/15 last:border-b-0">
-                          <span className="text-tangelo mr-2">→</span>"{q}"
-                        </p>
-                      ))}
-                    </div>
-                    <Card from="Diana — verdict" tone="agent">
-                      <p className="font-display uppercase text-xl text-botticelli">Keep testing.</p>
-                      <p className="text-linen/80 mt-2 text-xs">Authentic to the problem, differentiates the brand, memorable recall. Should move ahead — with tighter execution answers.</p>
+                    <Card from="Diana — Creative Strategy & Activation" tone="agent">
+                      <p>"Could be good. Could also be trying too hard."</p>
+                    </Card>
+                    <Card from="Anushka — the operator" tone="operator">
+                      <p>"What would make you kill it?"</p>
+                    </Card>
+                    <Card from="Diana" tone="agent">
+                      <p>"If the audience doesn't get the joke in three seconds."</p>
+                    </Card>
+                    <Card from="Anushka — the operator" tone="operator">
+                      <p>"Then let's test the comprehension first."</p>
+                      <Status>Testing, not spending</Status>
                     </Card>
                     <p className="font-serifit italic text-lg md:text-xl text-linen/85 border-l-4 border-tangelo pl-5">
                       I don't want agents that simply agree with me. I want systems that challenge me.
                     </p>
+                  </div>
+                )}
+
+                {view === "community" && (
+                  <div className="max-w-2xl space-y-4">
+                    <Card from="Parked idea — small practitioners' dinner">
+                      <p className="text-linen/85">
+                        "No reason to return yet. Diana's note stands: find the reason people come back first, then book
+                        the room."
+                      </p>
+                      <Status>Parked — deliberately</Status>
+                    </Card>
+                  </div>
+                )}
+
+                {view === "experiments" && (
+                  <div className="max-w-2xl space-y-4">
+                    <Card from="Black Box" tone="agent">
+                      <p className="text-linen/85">
+                        "Script ready. Three participants to recruit: an engineer, an enterprise professional, someone
+                        completely outside the space. Ten minutes of Conduct material each."
+                      </p>
+                      <Status>Ready to run</Status>
+                    </Card>
                   </div>
                 )}
               </motion.div>
@@ -316,6 +338,40 @@ export default function AgentDesk() {
           </div>
         </div>
       </div>
+
+      <div className="mt-16 md:mt-24">
+        <Reveal>
+          <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-linen/60 mb-6">Where the judgement lives</p>
+        </Reveal>
+        <Reveal delay={0.06}>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-display uppercase text-lg md:text-2xl" data-testid="judgement-strip">
+            {judgement.map((s, i) => (
+              <span key={s} className="flex items-center gap-3">
+                <span className={s.includes("Anushka") ? "text-tangelo" : "text-linen"}>{s}</span>
+                {i < judgement.length - 1 && <span className="text-botticelli text-sm md:text-base" aria-hidden="true">→</span>}
+              </span>
+            ))}
+          </div>
+        </Reveal>
+      </div>
+
+      <Reveal className="mt-16 md:mt-24">
+        <div data-testid="operating-layer-exhibit" className="border-2 border-linen/50 bg-linen p-3 md:p-4 spotlight">
+          <img
+            src="https://customer-assets-lxgj4vgw.emergentagent.net/job_notice-ship-learn/artifacts/3fd09ffa6b4d4375_13030139-DE02-4674-A73C-A003CE806EE2.png"
+            alt="The operating layer diagram from the Conduct Growth OS — Ana delegating to Agatha, Berdine, Catherine, Diana and Edith, with insight flowing back through synthesis"
+            className="w-full h-auto block"
+          />
+          <div className="flex flex-wrap items-baseline justify-between gap-3 pt-3 px-1">
+            <p className="font-mono text-[10px] tracking-[0.16em] uppercase text-chocolate/60">
+              Fig. 09 — the actual architecture, straight from the OS. Shown after the desk, on purpose.
+            </p>
+            <p className="font-mono text-[10px] tracking-[0.14em] uppercase text-chocolate/60">
+              Delegation ↓ · Insight ↑ · Collaboration ↔ · I make the final call
+            </p>
+          </div>
+        </div>
+      </Reveal>
 
       <div className="mt-16 md:mt-24">
         <Reveal>
@@ -342,7 +398,7 @@ export default function AgentDesk() {
         </div>
         <Reveal className="mt-10">
           <p className="font-serifit italic text-xl md:text-2xl text-linen max-w-2xl border-l-4 border-tangelo pl-5">
-            I don't want AI replacing judgement. I want it increasing the amount of signal I can process.
+            I built the system. The agents give me more eyes. I make the call.
           </p>
         </Reveal>
       </div>
