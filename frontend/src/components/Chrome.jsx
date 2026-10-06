@@ -9,10 +9,10 @@ export const Mark = ({ className = "w-6 h-6" }) => (
 );
 
 const links = [
-  ["Built", "#built"],
+  ["Evidence", "#built"],
   ["Growth OS", "#growth-os"],
-  ["Comms Loop", "#comms-loop"],
-  ["Agents", "#agents"],
+  ["Radar", "#radar"],
+  ["The Desk", "#agents"],
   ["Anniversary", "#anniversary"],
 ];
 

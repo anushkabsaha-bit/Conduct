@@ -1,23 +1,12 @@
-import { ArrowUpRight } from "lucide-react";
-import { Reveal, SectionHead, Tag } from "../components/Shared";
+import { Reveal, SectionHead } from "../components/Shared";
 
-const artefacts = [
-  { no: "01", name: "A 70K-reader Wattpad community", medium: "fiction · audience", href: "#wattpad" },
-  { no: "02", name: "Press-on nails for fictional characters", medium: "merch · experiment", href: "#nails" },
-  { no: "03", name: "A supper club", medium: "hospitality · belonging", href: "#supper" },
-  { no: "04", name: "A Conduct Growth Operating System", medium: "strategy · system", href: "#growth-os" },
-  { no: "05", name: "Six specialised agents", medium: "AI · leverage", href: "#agents" },
-  { no: "06", name: "A product × communications framework", medium: "storytelling", href: "#product-comms" },
-  { no: "07", name: "A content + distribution engine", medium: "editorial", href: "#content-engine" },
-  { no: "08", name: "An opportunity radar", medium: "signal", href: "#radar" },
-  { no: "09", name: "A Conduct anniversary experiment", medium: "events", href: "#anniversary" },
-];
-
-const variables = [
-  { k: "posting rhythm", v: "how often the story moved" },
-  { k: "amount", v: "how much arrived at once" },
-  { k: "day", v: "when people were actually there" },
-  { k: "format", v: "what shape the story took" },
+const wall = [
+  { n: "70K", l: "readers", d: "A community I built around writing.", span: "md:col-span-5", big: true },
+  { n: "37 → 7", l: "escalations / week", d: "A decision-triage system I built.", span: "md:col-span-4", big: true },
+  { n: "£17K", l: "found", d: "A supplier overcharge I identified.", span: "md:col-span-3", big: true },
+  { n: "£50K", l: "commercial deal", d: "A commercial negotiation I helped close.", span: "md:col-span-4", big: false },
+  { n: "Conduct", l: "growth os", d: "A system I built because I wanted to understand how Conduct could grow.", span: "md:col-span-4", big: false },
+  { n: "6", l: "agents", d: "Specialised intelligence layers I built to help me work faster and think better.", span: "md:col-span-4", big: false },
 ];
 
 export default function Built() {
@@ -27,75 +16,30 @@ export default function Built() {
         I've always been a builder. <span className="text-tangelo">The medium just keeps changing.</span>
       </SectionHead>
 
-      <div data-testid="artefacts-index" className="border-t border-chocolate/30">
-        {artefacts.map((a, i) => (
-          <Reveal key={a.no} delay={Math.min(i * 0.04, 0.3)} y={16}>
-            <a
-              href={a.href}
-              data-testid={`artefact-row-${a.no}`}
-              className="group grid grid-cols-[auto_1fr_auto] md:grid-cols-[80px_1fr_auto_40px] items-center gap-4 md:gap-8 py-5 md:py-6 border-b border-chocolate/30 hover:bg-chocolate hover:text-linen transition-colors duration-300 px-2 md:px-4 -mx-2 md:-mx-4"
+      <div data-testid="evidence-wall" className="grid md:grid-cols-12 border-t border-l border-chocolate/30">
+        {wall.map((w, i) => (
+          <Reveal key={w.l} delay={Math.min(i * 0.05, 0.25)} className={`${w.span} border-r border-b border-chocolate/30`}>
+            <div
+              data-testid={`evidence-${w.l.replace(/[\s/]+/g, "-")}`}
+              className="group p-6 md:p-8 h-full flex flex-col justify-between min-h-[220px] hover:bg-chocolate hover:text-linen transition-colors duration-300"
             >
-              <span className="font-mono text-xs text-tangelo group-hover:text-botticelli transition-colors">{a.no}</span>
-              <span className="font-display uppercase text-xl sm:text-2xl md:text-4xl leading-none tracking-wide">
-                {a.name}
-              </span>
-              <span className="hidden md:block font-mono text-[11px] tracking-[0.16em] uppercase opacity-60">
-                {a.medium}
-              </span>
-              <ArrowUpRight className="w-5 h-5 justify-self-end transition-transform duration-300 group-hover:rotate-45" />
-            </a>
+              <p className={`font-display uppercase leading-[0.85] ${w.big ? "text-6xl md:text-8xl" : "text-5xl md:text-7xl"} text-tangelo`}>
+                {w.n}
+              </p>
+              <div className="mt-8">
+                <p className="font-mono text-[11px] tracking-[0.2em] uppercase mb-2">{w.l}</p>
+                <p className="font-serifit italic text-base md:text-lg opacity-80">{w.d}</p>
+              </div>
+            </div>
           </Reveal>
         ))}
       </div>
 
-      <div id="wattpad" data-testid="wattpad-section" className="pt-24 md:pt-36 grid md:grid-cols-12 gap-10">
-        <div className="md:col-span-5">
-          <Reveal>
-            <p className="font-display text-[26vw] md:text-[11vw] leading-[0.85] text-tangelo">70,000</p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="font-display uppercase text-2xl sm:text-3xl lg:text-4xl text-chocolate leading-[0.95] mt-2">
-              people started reading<span className="text-tangelo">.</span>
-            </p>
-          </Reveal>
-          <Reveal delay={0.16}>
-            <div className="mt-6">
-              <Tag tone="chocolate">Exhibit A — Wattpad</Tag>
-            </div>
-          </Reveal>
-        </div>
-        <div className="md:col-span-7 space-y-6">
-          <Reveal>
-            <p className="font-mono text-sm md:text-base leading-relaxed text-chocolate/90">
-              It started with a creative writing course. I realised I loved stories and fictional worlds, so I started
-              writing more — and publishing on Wattpad. Then I did what I always do: I started changing one variable at
-              a time and watching what happened.
-            </p>
-          </Reveal>
-          <div className="grid sm:grid-cols-2 gap-3">
-            {variables.map((v, i) => (
-              <Reveal key={v.k} delay={0.08 + i * 0.06}>
-                <div className="border border-chocolate/40 p-4 hover:border-tangelo transition-colors" data-testid={`wattpad-variable-${v.k.replace(/\s/g, "-")}`}>
-                  <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-tangelo mb-2">Experimented with</p>
-                  <p className="font-display uppercase text-lg md:text-xl text-chocolate">{v.k}</p>
-                  <p className="font-mono text-xs text-chocolate/70 mt-2">{v.v}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal delay={0.2}>
-            <p className="font-mono text-sm md:text-base leading-relaxed text-chocolate/90">
-              I watched what made people return. It grew, organically, to around seventy thousand readers. No ads, no
-              growth hacks — just a story people cared about and a rhythm they could rely on.
-            </p>
-          </Reveal>
-          <Reveal delay={0.26}>
-            <p className="font-serifit italic text-xl md:text-2xl text-chocolate border-l-4 border-tangelo pl-5">
-              The lesson: I learned through experimentation what made people come back. That instinct has never left.
-            </p>
-          </Reveal>
-        </div>
-      </div>
+      <Reveal className="mt-10">
+        <p className="font-mono text-xs text-chocolate/60 max-w-xl">
+          Different mediums, same instinct: notice the problem, build the thing, see what happens.
+        </p>
+      </Reveal>
     </section>
   );
 }

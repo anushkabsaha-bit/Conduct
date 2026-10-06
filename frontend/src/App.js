@@ -4,13 +4,14 @@ import "@/App.css";
 import { Grain, Marquee, Nav } from "@/components/Chrome";
 import Hero from "@/sections/Hero";
 import Built from "@/sections/Built";
-import Nails from "@/sections/Nails";
-import SupperClub from "@/sections/SupperClub";
 import GrowthOS from "@/sections/GrowthOS";
-import RunComms from "@/sections/RunComms";
+import Instinct from "@/sections/Instinct";
+import Radar from "@/sections/Radar";
 import ProductComms from "@/sections/ProductComms";
-import DayAgents from "@/sections/DayAgents";
-import Proof from "@/sections/Proof";
+import Writing from "@/sections/Writing";
+import AgentDesk from "@/sections/AgentDesk";
+import Ops from "@/sections/Ops";
+import PersonalStory from "@/sections/PersonalStory";
 import Anniversary from "@/sections/Anniversary";
 import Final from "@/sections/Final";
 
@@ -37,26 +38,27 @@ function App() {
       <Marquee
         tone="orange"
         items={[
-          "I find the story",
-          "I figure out why it matters",
-          "I make it",
-          "I put it in front of the right people",
-          "I see what happens",
-          "I learn",
-          "Then I find the next story",
+          "What happened?",
+          "Why?",
+          "If I were there…",
+          "What would I do differently?",
+          "Test it",
+          "Learn",
+          "Repeat",
         ]}
       />
       <Built />
-      <Nails />
-      <SupperClub />
       <GrowthOS />
-      <RunComms />
+      <Instinct />
+      <Radar />
       <ProductComms />
-      <DayAgents />
-      <Proof />
+      <Writing />
+      <AgentDesk />
+      <Ops />
+      <PersonalStory />
       <Marquee
         tone="dark"
-        items={["Scout", "Find", "Frame", "Make", "Distribute", "Measure", "Learn", "Repeat"]}
+        items={["Observe", "Analyse", "Find", "Create", "Challenge", "Execute", "Measure", "Learn", "Repeat"]}
       />
       <Anniversary />
       <Final />

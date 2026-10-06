@@ -3,38 +3,36 @@ import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "../components/Shared";
 import { Mark } from "../components/Chrome";
 
+const lines = [
+  ["I've built audiences.", "text-linen"],
+  ["I've built systems.", "text-linen"],
+  ["I've built communities.", "text-linen"],
+  ["I've built slightly ridiculous things.", "outline-text-linen"],
+];
+
 export default function Final() {
   return (
     <section id="final" data-testid="final-section" className="bg-ink px-5 md:px-10 pt-24 md:pt-36 pb-10">
       <div className="mb-16 md:mb-24">
-        <Reveal>
-          <p className="font-display uppercase leading-[0.92] text-[11vw] md:text-[7vw] text-linen">
-            I have built audiences<span className="text-tangelo">.</span>
-          </p>
-        </Reveal>
-        <Reveal delay={0.08}>
-          <p className="font-display uppercase leading-[0.92] text-[11vw] md:text-[7vw] text-linen">
-            I have built things<span className="text-tangelo">.</span>
-          </p>
-        </Reveal>
-        <Reveal delay={0.16}>
-          <p className="font-display uppercase leading-[0.92] text-[11vw] md:text-[7vw] outline-text-linen">
-            I have built legos.
-          </p>
-        </Reveal>
+        {lines.map(([text, tone], i) => (
+          <Reveal key={text} delay={i * 0.08}>
+            <p className={`font-display uppercase leading-[0.95] text-[8.5vw] md:text-[5.5vw] ${tone}`}>{text}</p>
+          </Reveal>
+        ))}
       </div>
 
       <div className="grid md:grid-cols-12 gap-10 mb-20 md:mb-28">
         <div className="md:col-span-7 space-y-6">
           <Reveal>
             <p className="font-mono text-sm md:text-base leading-relaxed text-linen/85 max-w-xl">
-              And I did try to build a slightly ridiculous Growth Operating System for Conduct once. So when this role
-              came up, I thought I'd show you how I'd actually approach it.
+              And whenever I see something that could be better, my first thought is usually:{" "}
+              <span className="text-tangelo">"If I were there, what would I do differently?"</span> That's probably why
+              I keep building things.
             </p>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="font-serifit italic text-xl md:text-2xl text-linen max-w-xl">
-              If there's anything in here worth stealing, steal away. And if you think it's useful —
+              I'd love to find out what I'd build at Conduct.
             </p>
           </Reveal>
         </div>
