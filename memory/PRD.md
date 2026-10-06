@@ -17,6 +17,7 @@ Build from scratch a personal portfolio / work-sample website for Anushka Saha's
 ## Implemented (2026-10-06)
 - v1: full site per original narrative arc; all real Growth OS figures; interactive reveals; SVG mark + favicon; marquees; grain; dark↔paper rhythm. Verified at 375/768/1366.
 - v2 (same day): full restructure per refinement brief — personality-first hero, evidence wall, Growth OS moved early, "if I were there" section, category-based radar, audience translation tabs, editing demonstration, live agent desk with working interactions (Ana filter reasoning, Yes/Not-yet reply, Catherine investigate/park, Diana kill-test, Edith checklist), week board + filming multiplier, realistic day timeline, condensed personal story, anniversary late with conversation cards and empty Firsts archive. All interactions Playwright-verified.
+- v3 (same day): the real "operating layer" diagram from the OS added to the desk section as a framed artefact; agent roster titles and Ana/Catherine descriptions aligned word-for-word with the diagram.
 
 ## Hard rules (from user — do not break)
 - Name: Anushka Saha. Agent names fixed: Ana, Agatha, Berdine, Catherine, Diana, Edith. No new agents, no "AI employees" framing.

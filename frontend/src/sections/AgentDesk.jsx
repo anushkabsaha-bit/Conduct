@@ -12,12 +12,12 @@ const views = [
 ];
 
 const roster = [
-  ["Ana", "Main growth layer / EA"],
-  ["Agatha", "Performance intelligence + forecasting"],
-  ["Berdine", "Content + editorial intelligence"],
-  ["Catherine", "Market + opportunity radar"],
-  ["Diana", "Creative strategy + stress test"],
-  ["Edith", "Product, customer + storytelling"],
+  ["Ana", "Main Growth Agent / EA"],
+  ["Agatha", "Performance Intelligence & Forecasting"],
+  ["Berdine", "Content & Tech Intelligence / Editorial"],
+  ["Catherine", "Market & Representation Intelligence"],
+  ["Diana", "Creative Strategy & Activation"],
+  ["Edith", "Product, Customer & Storytelling Intelligence"],
 ];
 
 const anaItems = [
@@ -96,6 +96,24 @@ export default function AgentDesk() {
         </p>
       </Reveal>
 
+      <Reveal className="mb-14">
+        <div data-testid="operating-layer-exhibit" className="border-2 border-linen/50 bg-linen p-3 md:p-4 spotlight">
+          <img
+            src="https://customer-assets-lxgj4vgw.emergentagent.net/job_notice-ship-learn/artifacts/3fd09ffa6b4d4375_13030139-DE02-4674-A73C-A003CE806EE2.png"
+            alt="The operating layer diagram from the Conduct Growth OS — Ana delegating to Agatha, Berdine, Catherine, Diana and Edith, with insight flowing back through synthesis"
+            className="w-full h-auto block"
+          />
+          <div className="flex flex-wrap items-baseline justify-between gap-3 pt-3 px-1">
+            <p className="font-mono text-[10px] tracking-[0.16em] uppercase text-chocolate/60">
+              Fig. 09 — the actual operating layer, straight from the OS. Not a redraw.
+            </p>
+            <p className="font-mono text-[10px] tracking-[0.14em] uppercase text-chocolate/60">
+              Delegation ↓ · Insight ↑ · Collaboration ↔ · I make the final call
+            </p>
+          </div>
+        </div>
+      </Reveal>
+
       <div data-testid="agent-desk" className="border-2 border-linen/40 bg-ink/40">
         <div className="grid lg:grid-cols-[260px_1fr]">
           <aside className="border-b lg:border-b-0 lg:border-r border-linen/25 p-5 md:p-6">
@@ -146,7 +164,8 @@ export default function AgentDesk() {
                   <div className="space-y-5 max-w-2xl">
                     <Card from="Ana — main growth layer" tone="agent">
                       <p className="mb-3 text-linen/85">
-                        Filters the noise. Pulls together what the others are finding. Flags what needs my attention.
+                        Filters everything. Tells me what matters, what's working, what's not, what others are finding
+                        and what to do next. Delegates when she needs more clarity or deeper investigation.
                       </p>
                       <p className="text-botticelli uppercase tracking-[0.14em] text-xs">Today: 3 things worth your attention</p>
                     </Card>
@@ -232,8 +251,9 @@ export default function AgentDesk() {
                   <div className="max-w-2xl space-y-5">
                     <Card from="Catherine — market + opportunity radar" tone="agent">
                       <p className="mb-3 text-linen/85">
-                        Scouts the outside — events, communities, conversations — and brings back what's actually worth
-                        my time. Not everything gets escalated.
+                        Scouts events, communities, companies, people and moments across the UK & Europe where Conduct
+                        should be represented. Looks at who will be there, tech concentration, relevance, contacts,
+                        permissions and practical requirements.
                       </p>
                     </Card>
                     <Card from="Catherine → Anushka">
