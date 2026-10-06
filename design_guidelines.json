@@ -1,0 +1,151 @@
+{
+  "theme": "light",
+  "project_type": "editorial_portfolio_os",
+  "typography": {
+    "primary_heading": {
+      "family": "Playfair Display, ui-serif, Georgia, Cambria, Times New Roman, Times, serif",
+      "style": "Oversized, tight tracking (tracking-tighter), bold and expressive. Used for extreme scale (text-6xl to text-9xl). Avoid Inter for headings entirely.",
+      "weights": ["400", "800", "900"]
+    },
+    "technical_annotation": {
+      "family": "JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "style": "Typewriter/OS aesthetic. Used for metadata, diagrams, timestamps, UI labels, small caps (tracking-widest).",
+      "weights": ["400", "500"]
+    },
+    "body": {
+      "family": "Inter, system-ui, -apple-system, sans-serif",
+      "style": "Clean, highly legible, stays out of the way. Generous line-height (leading-relaxed).",
+      "weights": ["400"]
+    },
+    "rules": [
+      "NO generic rounded sans-serifs for headings.",
+      "Mix extreme scales: Pair a massive text-8xl Serif heading with a tiny text-xs Mono annotation directly underneath.",
+      "Never center align body text. Strict left-alignment (ragged right) for editorial feel."
+    ]
+  },
+  "colors": {
+    "linen": {
+      "hex": "#F9E8D4",
+      "usage": "Primary background for the entire site. Brings the 'paper/editorial' feel. Never use pure white."
+    },
+    "chocolate_brown": {
+      "hex": "#663924",
+      "usage": "Primary text color, borders, raw SVG lines, diagrams. Replaces standard black/gray."
+    },
+    "tangelo": {
+      "hex": "#D54C15",
+      "usage": "Kinetic accents, primary CTA buttons, highlighted data points, interactive hover states. Use for 'What I notice -> What I do' signals."
+    },
+    "botticelli": {
+      "hex": "#8DB6C7",
+      "usage": "Secondary backgrounds, softer structural blocks, quiet contrast to the warm Tangelo."
+    },
+    "rules": [
+      "NO gradients. NO glassmorphism. NO soft shadows. Keep it flat, raw, and printed.",
+      "Hover states should invert colors (e.g., hover:bg-[#663924] hover:text-[#F9E8D4])."
+    ]
+  },
+  "layouts": {
+    "spacing": "Extremely generous. Use p-12, p-16, p-24 to create massive negative space. The site must feel like a magazine spread.",
+    "grids": [
+      "Asymmetrical Tetris Grid: Do not make symmetrical 3-column cards. Use col-span-8 and col-span-4 to create tension.",
+      "Borders instead of Cards: Use strict 1px solid #663924 borders to separate sections, reminiscent of editorial columns or OS panels."
+    ],
+    "alignment": "Prioritize harsh left alignment and intentional offsets. Elements should occasionally overlap slightly to break the grid."
+  },
+  "visual_enhancers": {
+    "borders": "1px solid #663924. Use border-collapse for grid sections.",
+    "textures": "Subtle SVG noise overlay (opacity-20) over the #F9E8D4 background to make it feel like printed linen/paper.",
+    "shadows": "NO soft drop shadows. If depth is needed, use harsh solid offset shadows (e.g., shadow-[4px_4px_0px_#663924]).",
+    "corners": "Sharp (rounded-none) or very slightly rounded (rounded-sm) for interactive elements. NO excessive rounded cards."
+  },
+  "motion": {
+    "scrolling": "MUST install and implement 'lenis' for smooth scrolling. This provides the premium 'momentum' feel.",
+    "hero_reveal": "Framer Motion line-by-line masked text reveal for 'I HAVE BUILT AUDIENCES / THINGS / LEGOS'.",
+    "parallax": "One subtle parallax moment on scroll using Framer Motion (use-scroll).",
+    "interactions": "Hover states on diagrams/radar should trigger immediate, sharp reveals (no long fades). Press-on nail and artifacts should reveal on hover/click with raw HTML absolute positioning.",
+    "marquee": "Use react-fast-marquee. Extremely slow, editorial ribbon style. Mono font, #663924 text on #F9E8D4."
+  },
+  "media": {
+    "rules": "NO STOCK PHOTOGRAPHY. NO AI BLOBS. NO CORPORATE ILLUSTRATIONS.",
+    "assets": [
+      {
+        "id": "press_on_nails",
+        "url": "https://customer-assets-jt897jd0.emergentagent.net/job_28f8e28b-843a-47dd-964d-510eaa7c3e63/artifacts/74a331a422ff3d76_IMG_4799.jpeg",
+        "placement": "Artefacts collection (interactive hover/click reveal)",
+        "style": "Raw image, no soft borders. Use for the 'What I've built' section."
+      },
+      {
+        "id": "supper_club_polaroid",
+        "url": "https://customer-assets-jt897jd0.emergentagent.net/job_28f8e28b-843a-47dd-964d-510eaa7c3e63/artifacts/7025e174823a9df9_IMG_4835.jpeg",
+        "placement": "Supper club / Community section",
+        "style": "Rotate slightly (rotate-3). Give it a real physical photograph presence."
+      },
+      {
+        "id": "anniversary_invitation",
+        "url": "https://customer-assets-jt897jd0.emergentagent.net/job_28f8e28b-843a-47dd-964d-510eaa7c3e63/artifacts/726de269409b064a_IMG_4836.jpeg",
+        "placement": "Conduct 3rd anniversary experiment / Dinner invitation section",
+        "style": "Reference image for styling the UI. Use typewriter-monospace + oversized type in the actual HTML implementation to mimic this."
+      }
+    ],
+    "color_palette_reference": "https://customer-assets-jt897jd0.emergentagent.net/job_28f8e28b-843a-47dd-964d-510eaa7c3e63/artifacts/df4eee8125baf3c1_9863b8b2-9e0b-40fb-bcab-c819dd7cd52b.jpeg"
+  },
+  "key_sections": [
+    {
+      "name": "Kinetic Hero",
+      "description": "Massive typography 'I HAVE BUILT AUDIENCES / THINGS / LEGOS'. Framer motion mask reveal line by line."
+    },
+    {
+      "name": "Artefacts",
+      "description": "NOT a card grid. A messy, editorial layout of items (Press-on nails, supper club). Absolute positioning, overlapping text."
+    },
+    {
+      "name": "Conduct Growth OS",
+      "description": "Technical OS look. Monospace stats (38 posts, 7079 likes, 1045 comments, 251 reposts). Use raw SVGs for charts/data visualization."
+    },
+    {
+      "name": "Comms Pipeline Loop",
+      "description": "Diagram (SCOUT→FIND→FRAME→MAKE→DISTRIBUTE→MEASURE→LEARN→REPEAT). Cycle logic, use borders and arrows."
+    },
+    {
+      "name": "Opportunity Radar",
+      "description": "Interactive UI mapping 'what I notice' to 'what I do'. Clickable signals."
+    },
+    {
+      "name": "Day in my Life Timeline",
+      "description": "Vertical line timeline, technical annotations."
+    },
+    {
+      "name": "Six AI Agents Architecture",
+      "description": "Node-based diagram (Ana, Agatha, Berdine, Catherine, Diana, Edith) around Anushka (Operator). Clickable architecture."
+    },
+    {
+      "name": "Anniversary Dinner Invitation",
+      "description": "Styled strictly like the provided reference image (typewriter font + oversized serif)."
+    }
+  ],
+  "components": {
+    "rules": "Use raw HTML/Tailwind for layouts. If using Shadcn (e.g., Dialog for writing samples), strip ALL default Vercel-like styling (no rounded-lg, no shadows). Overwrite with border border-[#663924] bg-[#F9E8D4] rounded-none."
+  },
+  "testing": {
+    "attributes": "All interactive and key informational elements MUST include a 'data-testid' attribute to facilitate robust automated testing. Convention: kebab-case, role-based."
+  },
+  "instructions_to_main_agent": [
+    "You are building an editorial portfolio that merges physical magazine aesthetics with technical operating system interfaces.",
+    "Do NOT use standard SaaS cards. Rely on borders (border-[#663924]), padding, and typography scale for hierarchy.",
+    "Ensure 'lenis' is installed and used for smooth scrolling.",
+    "Ensure 'framer-motion' is used for the masked text hero reveal.",
+    "Do NOT use transparent backgrounds for any overlapping content or modals. Always use solid #F9E8D4 or #8DB6C7.",
+    "Do not add any stock photos. Only use the provided user assets.",
+    "Tone is curious, direct, smart, self-aware, slightly funny, a little weird. Embed this in the UX microcopy."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. Avoid the 'AI slop' aesthetic. Make this creative, distinctive, and editorial.",
+    "Don't make generic centered layouts. Embrace asymmetry and ragged-right text.",
+    "Create depth through overlapping layers and raw borders, NOT glassmorphism or soft shadows.",
+    "NEVER use universal transitions (transition: all). Target specific properties.",
+    "NEVER use AI assistant emoji characters.",
+    "Every interaction needs a micro-animation (e.g., text color inversion on hover).",
+    "Prioritize optical alignment and extreme negative space (p-16 to p-32)."
+  ]
+}
