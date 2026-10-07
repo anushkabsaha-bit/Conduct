@@ -9,7 +9,6 @@ import GrowthOS from "@/sections/GrowthOS";
 import Scenarios from "@/sections/Scenarios";
 import ProductComms from "@/sections/ProductComms";
 import Freudenberg from "@/sections/Freudenberg";
-import EditDemo from "@/sections/EditDemo";
 import NotShips from "@/sections/NotShips";
 import AgentDesk from "@/sections/AgentDesk";
 import Ops from "@/sections/Ops";
@@ -55,7 +54,6 @@ function App() {
       <Scenarios />
       <ProductComms />
       <Freudenberg />
-      <EditDemo />
       <NotShips />
       <AgentDesk />
       <Ops />

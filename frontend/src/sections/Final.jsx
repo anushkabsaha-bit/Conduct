@@ -12,8 +12,8 @@ const lines = [
 
 export default function Final() {
   return (
-    <section id="final" data-testid="final-section" className="bg-ink px-5 md:px-10 pt-24 md:pt-36 pb-10">
-      <div className="mb-16 md:mb-24">
+    <section id="final" data-testid="final-section" className="bg-ink px-5 md:px-10 pt-24 md:pt-32 pb-10">
+      <div className="mb-14 md:mb-20">
         {lines.map(([text, tone], i) => (
           <Reveal key={text} delay={i * 0.08}>
             <p className={`font-display uppercase leading-[0.95] text-[8.5vw] md:text-[5.5vw] ${tone}`}>{text}</p>
@@ -21,28 +21,17 @@ export default function Final() {
         ))}
       </div>
 
-      <div className="grid md:grid-cols-12 gap-10 mb-20 md:mb-28">
-        <div className="md:col-span-7 space-y-6">
+      <div className="grid md:grid-cols-12 gap-10 mb-16 md:mb-24">
+        <div className="md:col-span-7">
           <Reveal>
-            <p className="font-mono text-sm md:text-base leading-relaxed text-linen/85 max-w-xl">
-              I think I'm at my best when I can look at something and think:{" "}
-              <span className="text-tangelo">that could be better — what would I do differently?</span>
-            </p>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <p className="font-mono text-sm md:text-base leading-relaxed text-linen/85 max-w-xl">
-              That's probably why I keep building things.
-            </p>
-          </Reveal>
-          <Reveal delay={0.14}>
             <p className="font-serifit italic text-xl md:text-2xl text-linen max-w-xl">
-              And Conduct has been the company I've wanted to build alongside for a while. Now I want to see what I
-              could build here.
+              Conduct has been the company I've wanted to build alongside for a while. Now I want to see what I could
+              build here.
             </p>
           </Reveal>
         </div>
         <div className="md:col-span-5 flex md:justify-end items-start">
-          <Reveal delay={0.16}>
+          <Reveal delay={0.12}>
             <motion.a
               href="mailto:Anushkabsaha@gmail.com"
               data-testid="final-contact-cta"
@@ -61,7 +50,7 @@ export default function Final() {
         <div className="flex items-center gap-3">
           <Mark className="w-5 h-5" />
           <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-linen/70">
-            Anushka Saha — Communications Strategist, Conduct
+            Anushka Saha · Communications Strategist, Conduct
           </span>
         </div>
         <div className="flex items-center gap-6 font-mono text-[10px] tracking-[0.16em] uppercase text-linen/50">

@@ -282,9 +282,29 @@ export default function Hero() {
           </div>
 
           <div className="relative pt-2 hidden sm:block">
-            <Note rotate={-1} delay={2.2}>anniversary — test before scaling.</Note>
-            <Note rotate={2} delay={2.3}>community — why do people come back?</Note>
+            <Note rotate={-1} delay={2.2}>anniversary · test before scaling.</Note>
+            <Note rotate={2} delay={2.3}>community · why do people come back?</Note>
           </div>
+
+          <motion.div
+            data-testid="wall-supper-polaroid"
+            initial={{ opacity: 0, y: 24, rotate: 6 }}
+            animate={{ opacity: 1, y: 0, rotate: 2.5 }}
+            transition={{ duration: 0.9, delay: 2.3, ease: [0.22, 1, 0.36, 1] }}
+            className="relative"
+          >
+            <motion.div {...float(4, 2.5)} className="bg-white p-2 pb-3 shadow-lg w-36 md:w-44">
+              <Tack className="-top-1.5 left-1/2 -translate-x-1/2 z-10" />
+              <img
+                src="https://customer-assets-jt897jd0.emergentagent.net/job_28f8e28b-843a-47dd-964d-510eaa7c3e63/artifacts/df4eee8125baf3c1_9863b8b2-9e0b-40fb-bcab-c819dd7cd52b.jpeg"
+                alt="Polaroid of my supper club, friends crowded onto a sofa after dinner"
+                className="w-full h-auto block"
+              />
+              <p className="font-[Caveat] text-sm md:text-base text-chocolate/80 text-center leading-tight mt-2">
+                Conduct has its fridge magnet. I have mine. This is a supper club I started.
+              </p>
+            </motion.div>
+          </motion.div>
         </div>
 
         {/* mobile polaroids */}
@@ -306,16 +326,28 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ---- name / roles / start here ---- */}
-      <div className="relative z-20 border-t border-chocolate/30 mx-5 md:mx-10 py-5 mb-2 flex flex-wrap items-center justify-between gap-4">
+      {/* ---- explanation + name / roles / start here ---- */}
+      <div className="relative z-20 px-5 md:px-10 pb-8 max-w-2xl">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2.2, duration: 0.7 }}
+          className="font-mono text-sm md:text-base leading-relaxed text-chocolate/90"
+          data-testid="hero-explanation"
+        >
+          I tend to put myself in the room. If something isn't working, I want to understand why, what I would change,
+          and what I could test.
+        </motion.p>
+      </div>
+      <div className="relative z-20 border-t border-chocolate/30 mx-5 md:mx-10 py-5 mb-2 flex flex-wrap items-center justify-between gap-4">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2.3, duration: 0.7 }}
           className="font-mono text-[11px] md:text-xs tracking-[0.2em] uppercase text-chocolate"
           data-testid="hero-name-roles"
         >
-          Anushka Saha — Builder / Operator / Communicator
+          Anushka Saha · Builder / Operator / Communications
         </motion.p>
         <motion.a
           initial={{ opacity: 0 }}

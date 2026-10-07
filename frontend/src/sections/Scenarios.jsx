@@ -33,16 +33,9 @@ export default function Scenarios() {
 
   return (
     <section id="if-i-were-there" data-testid="scenarios-section" className="bg-ink border-y border-linen/15 px-5 md:px-10 py-24 md:py-36">
-      <SectionHead no="IF" kicker="My brain, operating" dark>
-        If I were there<span className="text-tangelo">…</span>
+      <SectionHead no="06" kicker="Three situations" dark>
+        If I were there<span className="text-tangelo">.</span>
       </SectionHead>
-
-      <Reveal>
-        <p className="font-mono text-sm md:text-base text-linen/85 max-w-2xl mb-12">
-          I don't just look at something from the outside and critique it. I start imagining that I'm responsible for
-          making it better.
-        </p>
-      </Reveal>
 
       <div className="grid md:grid-cols-12 gap-8">
         <div className="md:col-span-5 space-y-2 content-start">
