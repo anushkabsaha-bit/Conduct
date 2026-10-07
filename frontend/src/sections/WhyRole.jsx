@@ -1,27 +1,12 @@
 import { Reveal, SectionHead } from "../components/Shared";
 
-const threeThings = [
-  {
-    k: "Communication",
-    d: "Taking something complicated, finding the interesting idea inside it, and making someone actually care.",
-  },
-  {
-    k: "Community",
-    d: "Understanding why people come back, participate, contribute and feel like they belong.",
-  },
-  {
-    k: "Movement",
-    d: 'Taking an idea from "someone should do something about this" to "I actually built it."',
-  },
-];
-
-const gravitation = [
-  ["Writing", "I like finding the sentence that makes the idea click."],
-  ["Product", "I want to understand what is actually being built before deciding how to talk about it."],
-  ["Community", "I've built audiences and spaces where people wanted to come back."],
-  ["Growth", "I think about why something is working, why it isn't and what to test next."],
-  ["Operations", "I know how to turn an idea into an actual system and get it moving."],
-  ["Creative", "I care about how something feels, not just whether it technically communicates the information."],
+const pillars = [
+  ["Communication", "I like finding the sentence that makes a complicated idea click."],
+  ["Product", "I want to understand what was actually built before deciding what the story should be."],
+  ["Community", "I've built audiences and spaces because I am fascinated by why people come back."],
+  ["Growth", "I naturally ask what is working, what isn't, and what I'd test next."],
+  ["Operations", "I like turning an idea into something that actually runs."],
+  ["Creative", "I care whether something is memorable, not just whether it technically communicates."],
 ];
 
 const roleMe = [
@@ -49,58 +34,75 @@ export default function WhyRole() {
   return (
     <>
       <section id="why" data-testid="why-role-section" className="bg-linen text-chocolate px-5 md:px-10 py-24 md:py-36">
-        <SectionHead no="WHY" kicker="The honest bit">
+        <SectionHead no="03" kicker="Why this role">
           Why this role<span className="text-tangelo">?</span>
         </SectionHead>
 
         <Reveal>
-          <p className="font-serifit italic text-2xl md:text-3xl leading-snug text-chocolate max-w-3xl mb-16">
-            I've realised I'm most interested in the space between{" "}
-            <span className="text-tangelo not-italic font-display uppercase">something being built</span> and{" "}
-            <span className="text-tangelo not-italic font-display uppercase">people understanding why it matters.</span>
+          <p className="font-mono text-sm md:text-base text-chocolate/90 max-w-2xl mb-14">
+            I haven't had "Communications Strategist" neatly printed on my CV. But I keep finding myself doing pieces of
+            this work anyway.
           </p>
         </Reveal>
 
-        <div className="grid md:grid-cols-3 gap-3 mb-14">
-          {threeThings.map((t, i) => (
-            <Reveal key={t.k} delay={i * 0.08}>
-              <div className="border-2 border-chocolate p-6 md:p-8 h-full" data-testid={`why-pillar-${t.k.toLowerCase()}`}>
-                <p className="font-display uppercase text-2xl md:text-3xl text-tangelo mb-4">{t.k}</p>
-                <p className="font-mono text-sm leading-relaxed text-chocolate/90">{t.d}</p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-14">
+          {pillars.map(([k, v], i) => (
+            <Reveal key={k} delay={Math.min(i * 0.05, 0.25)}>
+              <div className="border-2 border-chocolate p-6 h-full" data-testid={`why-pillar-${k.toLowerCase()}`}>
+                <p className="font-display uppercase text-xl md:text-2xl text-tangelo mb-3">{k}</p>
+                <p className="font-mono text-sm leading-relaxed text-chocolate/90">{v}</p>
               </div>
             </Reveal>
           ))}
         </div>
 
         <Reveal>
-          <p className="font-mono text-sm md:text-base text-chocolate/85 max-w-xl mb-24 md:mb-32">
-            That combination is basically what pulled me towards this role.
+          <p className="font-display uppercase text-3xl sm:text-4xl lg:text-5xl text-chocolate leading-[0.98] max-w-5xl mb-8">
+            I think I'm fascinated by the space between something being built and people actually{" "}
+            <span className="text-tangelo">understanding why it matters.</span>
+          </p>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <p className="font-mono text-sm md:text-base text-chocolate/85 max-w-2xl mb-6">
+            That is what makes this role interesting to me.
+          </p>
+        </Reveal>
+        <Reveal delay={0.12}>
+          <p className="font-serifit italic text-xl md:text-2xl text-chocolate max-w-2xl mb-24 md:mb-32">
+            I don't just want to communicate what Conduct builds. I want to understand it deeply enough to find the
+            story inside it.
           </p>
         </Reveal>
 
         <div id="why-conduct" className="mb-24 md:mb-32">
-          <SectionHead no="WHY" kicker="Why Conduct">
+          <SectionHead no="04" kicker="Why Conduct">
             Conduct has been <span className="text-tangelo">the company for me.</span>
           </SectionHead>
           <div className="grid md:grid-cols-12 gap-10">
             <div className="md:col-span-7 space-y-6">
               <Reveal>
                 <p className="font-mono text-sm md:text-base leading-relaxed text-chocolate/90 max-w-xl">
-                  I came across Conduct when it was still a much smaller team. What caught me wasn't just the
-                  technology. It was the problem. I could see you were trying to make something incredibly complicated
-                  understandable and actionable. And I kept thinking:{" "}
+                  I came across Conduct when the team was still much smaller. What caught me wasn't just the technology.
+                  It was the problem. Something incredibly complicated was being turned into something people could
+                  actually understand and act on. And I kept thinking:{" "}
                   <span className="text-tangelo font-bold">I want to be part of that.</span>
                 </p>
               </Reveal>
               <Reveal delay={0.08}>
                 <p className="font-mono text-sm md:text-base leading-relaxed text-chocolate/90 max-w-xl">
-                  As Conduct grew, I kept coming back to the same question: if I were there, what would I do with all of
-                  this? That is what eventually led to the Growth Operating System.
+                  When the Growth Generalist role came up, I asked myself the same question I always ask when something
+                  interests me: "If I were there, what would I do?" So I built the Growth Operating System.
+                </p>
+              </Reveal>
+              <Reveal delay={0.12}>
+                <p className="font-mono text-sm md:text-base leading-relaxed text-chocolate/90 max-w-xl">
+                  This role made me ask the question again. Only this time the answer was: I want to work at the
+                  intersection of product, communication, community and growth.
                 </p>
               </Reveal>
             </div>
             <div className="md:col-span-5">
-              <Reveal delay={0.12}>
+              <Reveal delay={0.14}>
                 <div className="border-l-4 border-tangelo pl-6">
                   <p className="font-display uppercase text-3xl md:text-4xl text-chocolate leading-[0.95] mb-3">
                     I wasn't given a brief. I was curious.
@@ -113,35 +115,27 @@ export default function WhyRole() {
         </div>
 
         <div id="why-title">
-          <SectionHead no="WHY" kicker="About the title">
-            I haven't had the title. <span className="text-tangelo">I've been doing the work.</span>
+          <SectionHead no="05" kicker="About the title">
+            I haven't had the title. <span className="text-tangelo">I've been building towards the work.</span>
           </SectionHead>
           <Reveal>
-            <p className="font-mono text-sm md:text-base text-chocolate/85 max-w-2xl mb-10">
-              I haven't spent the last few years with "Communications Strategist" written neatly on my CV. But when I
-              look at what I naturally gravitate towards, the pattern is pretty obvious.
+            <p className="font-mono text-sm md:text-base text-chocolate/85 max-w-2xl mb-6">
+              I don't have ten years of enterprise communications experience. I also don't think pretending I do would
+              make this portfolio more interesting. What I do have is a habit of getting close to unfamiliar problems,
+              figuring out what matters, and building something to test my thinking.
             </p>
           </Reveal>
-          <div className="border-t border-chocolate/30 mb-10">
-            {gravitation.map(([k, v], i) => (
-              <Reveal key={k} delay={Math.min(i * 0.04, 0.24)} y={10}>
-                <div className="grid md:grid-cols-[220px_1fr] gap-2 md:gap-8 py-4 border-b border-chocolate/30 items-baseline" data-testid={`gravitation-${k.toLowerCase()}`}>
-                  <span className="font-display uppercase text-xl md:text-2xl text-chocolate">{k}</span>
-                  <span className="font-mono text-sm text-chocolate/85">{v}</span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal>
-            <p className="font-serifit italic text-xl md:text-2xl text-chocolate">
-              That combination is why this role makes sense to me.
+          <Reveal delay={0.08}>
+            <p className="font-mono text-sm md:text-base text-chocolate/85 max-w-2xl">
+              That is exactly what I did with Conduct — the Growth OS is below. And it is what I'd want to do with
+              communications — the rest of this page is that.
             </p>
           </Reveal>
         </div>
       </section>
 
       <section id="why-fit" data-testid="role-fit-section" className="bg-chocolate text-linen px-5 md:px-10 py-24 md:py-36">
-        <SectionHead no="WHY" kicker="The role, translated" dark>
+        <SectionHead no="06" kicker="The role, translated" dark>
           The job description, <span className="text-botticelli">in things I already care about.</span>
         </SectionHead>
 

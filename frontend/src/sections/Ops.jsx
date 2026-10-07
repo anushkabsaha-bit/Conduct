@@ -1,14 +1,13 @@
 import { Reveal, SectionHead } from "../components/Shared";
 
-const week = [
-  ["Substack", "Draft → Edit → Publish → Distribution", "in edit"],
-  ["LinkedIn", "3 posts in testing", "testing"],
-  ["Video", "1 filming session", "booked"],
-  ["Customer story", "Awaiting product review", "blocked, politely"],
-  ["Event", "2 opportunities being investigated", "scouting"],
+const slate = [
+  { no: "01", desk: "Customer", item: "Freudenberg × Process Documentation", audience: "Prospects, customers", format: "Long-form story", distribution: "Website, LinkedIn, sales", purpose: "Make the problem felt" },
+  { no: "02", desk: "Product", item: "What changed?", audience: "Market, engineers", format: "Explainer", distribution: "Website, LinkedIn", purpose: "Understanding" },
+  { no: "03", desk: "Engineering", item: "What's technically difficult here?", audience: "Engineers, candidates", format: "Deep dive", distribution: "Substack / Medium", purpose: "Credibility" },
+  { no: "04", desk: "Founder", item: "What does this mean for the future of enterprise systems?", audience: "Market, investors", format: "POV essay / talk", distribution: "Founder channels", purpose: "Belief" },
+  { no: "05", desk: "Community", item: "Practitioner conversation", audience: "Practitioners", format: "Event / hackathon + clips", distribution: "Community channels", purpose: "A reason to return" },
+  { no: "06", desk: "Talent", item: "What kind of people get to build this?", audience: "Candidates", format: "Behind-the-scenes", distribution: "LinkedIn, careers", purpose: "Applications" },
 ];
-
-const filming = ["1 hero video", "3 short clips", "1 founder post", "1 LinkedIn carousel", "1 blog section", "1 recruitment asset"];
 
 const day = [
   ["09:12", "Ana flags something worth my attention."],
@@ -26,47 +25,40 @@ const day = [
 export default function Ops() {
   return (
     <section id="ops" data-testid="ops-section" className="bg-linen text-chocolate px-5 md:px-10 py-24 md:py-36">
-      <SectionHead no="10" kicker="The desk in motion">
-        What the week <span className="text-tangelo">actually looks like.</span>
+      <SectionHead no="13" kicker="If I were running the desk this month">
+        The slate<span className="text-tangelo">.</span>
       </SectionHead>
 
-      <div className="grid md:grid-cols-12 gap-10 mb-24 md:mb-32">
-        <div className="md:col-span-7">
-          <Reveal>
-            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-chocolate/60 mb-4">This week — an illustration of how the desk runs</p>
-          </Reveal>
-          <div className="border-t border-chocolate/30" data-testid="content-desk-board">
-            {week.map(([k, v, s], i) => (
-              <Reveal key={k} delay={Math.min(i * 0.04, 0.2)} y={10}>
-                <div className="grid grid-cols-[130px_1fr_auto] gap-4 py-4 border-b border-chocolate/30 items-baseline">
-                  <span className="font-display uppercase text-lg md:text-xl">{k}</span>
-                  <span className="font-mono text-xs md:text-sm text-chocolate/85">{v}</span>
-                  <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-tangelo">{s}</span>
+      <Reveal>
+        <div className="border-2 border-chocolate overflow-x-auto mb-24 md:mb-32" data-testid="content-slate">
+          <div className="min-w-[900px]">
+            <div className="grid grid-cols-[50px_110px_1.4fr_1fr_1fr_1.2fr_1fr] border-b-2 border-chocolate bg-chocolate text-linen">
+              {["", "Desk", "Item", "Audience", "Format", "Distribution", "Purpose"].map((h) => (
+                <p key={h} className="font-mono text-[10px] tracking-[0.18em] uppercase px-4 py-3">{h}</p>
+              ))}
+            </div>
+            {slate.map((row, i) => (
+              <Reveal key={row.no} delay={Math.min(i * 0.04, 0.24)} y={8}>
+                <div
+                  className="grid grid-cols-[50px_110px_1.4fr_1fr_1fr_1.2fr_1fr] border-b border-chocolate/25 last:border-b-0 hover:bg-botticelli/20 transition-colors"
+                  data-testid={`slate-row-${row.no}`}
+                >
+                  <p className="font-mono text-xs text-tangelo px-4 py-4">{row.no}</p>
+                  <p className="font-display uppercase text-sm px-4 py-4">{row.desk}</p>
+                  <p className="font-mono text-xs px-4 py-4 text-chocolate/90">{row.item}</p>
+                  <p className="font-mono text-xs px-4 py-4 text-chocolate/80">{row.audience}</p>
+                  <p className="font-mono text-xs px-4 py-4 text-chocolate/80">{row.format}</p>
+                  <p className="font-mono text-xs px-4 py-4 text-chocolate/80">{row.distribution}</p>
+                  <p className="font-mono text-xs px-4 py-4 text-chocolate/90">{row.purpose}</p>
                 </div>
               </Reveal>
             ))}
           </div>
         </div>
-        <div className="md:col-span-5">
-          <Reveal>
-            <div className="border-2 border-chocolate p-6 md:p-8" data-testid="filming-multiplier">
-              <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-tangelo mb-3">One filming session</p>
-              <p className="font-display uppercase text-3xl md:text-4xl mb-6">becomes</p>
-              <div className="space-y-0 border-t border-chocolate/25">
-                {filming.map((f, i) => (
-                  <p key={f} className="font-mono text-sm py-2.5 border-b border-chocolate/25 text-chocolate/90">
-                    <span className="text-tangelo mr-3">0{i + 1}</span>
-                    {f}
-                  </p>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </div>
+      </Reveal>
 
       <div id="day">
-        <SectionHead no="11" kicker="A day in my life">
+        <SectionHead no="14" kicker="A day in my life">
           An operator's day. <span className="text-tangelo">Not a productivity routine.</span>
         </SectionHead>
 

@@ -67,6 +67,16 @@ const flow = [
   ["Ship", ""],
 ];
 
+const workflow = [
+  { t: "10:17", from: "Edith", tone: "agent", text: "Customer conversation flagged a recurring problem. Potential story." },
+  { t: "10:23", from: "Berdine", tone: "default", text: "Interesting. I wouldn't lead with the product. I'd lead with the frustration before the product existed." },
+  { t: "10:26", from: "Agatha", tone: "default", text: "Similar problem-led content has historically created stronger engagement. Worth testing." },
+  { t: "10:31", from: "Diana", tone: "default", text: "Question: if we remove the Conduct name, is there still a story?" },
+  { t: "10:34", from: "Anushka", tone: "operator", text: "Yes. Let's develop it around the problem." },
+  { t: "10:38", from: "Ana", tone: "agent", text: "Recommendation: customer story first. Feature explanation second. Video after the written story." },
+  { t: "10:41", from: "Anushka", tone: "operator", text: "SHIP." },
+];
+
 const Status = ({ children }) => (
   <p className="inline-block font-mono text-[11px] tracking-[0.18em] uppercase bg-botticelli text-ink px-3 py-1.5">
     Status: {children}
@@ -92,6 +102,15 @@ export default function AgentDesk() {
   const [view, setView] = useState("content");
   const [showWhy, setShowWhy] = useState(false);
   const [catherineDecision, setCatherineDecision] = useState(null);
+  const [wf, setWf] = useState({ step: 0, running: false, shipped: false });
+
+  const runWorkflow = () => {
+    setWf({ step: 0, running: true, shipped: false });
+    workflow.forEach((_, i) => {
+      setTimeout(() => setWf((s) => ({ ...s, step: i + 1 })), 1300 * (i + 1));
+    });
+    setTimeout(() => setWf({ step: workflow.length, running: false, shipped: true }), 1300 * workflow.length + 1200);
+  };
 
   return (
     <section id="agents" data-testid="agents-section" className="bg-chocolate text-linen px-5 md:px-10 py-24 md:py-36">
@@ -183,26 +202,66 @@ export default function AgentDesk() {
                 )}
 
                 {view === "content" && (
-                  <div className="space-y-4 max-w-2xl">
-                    <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-linen/40">10:17</p>
-                    <Card from="Ana → Anushka" tone="agent">
-                      <p>"Did you post the Substack piece?"</p>
-                    </Card>
-                    <Card from="Anushka — the operator" tone="operator">
-                      <p>"Not yet. I don't like the opening."</p>
-                    </Card>
-                    <Card from="Berdine">
-                      <p>"I agree. The idea is good. The first line is doing too much."</p>
-                      <div className="border border-botticelli/40 mt-2">
-                        <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-botticelli px-4 pt-3">Suggested edit</p>
-                        <p className="px-4 py-2 text-linen/50 line-through text-xs">"Enterprise software has become increasingly complex…"</p>
-                        <p className="px-4 pb-3 text-linen text-sm">"Why does changing one thing in enterprise software still take so long?"</p>
-                      </div>
-                    </Card>
-                    <Card from="Anushka — the operator" tone="operator">
-                      <p>"Better. Ship the shorter version."</p>
-                      <Status>Ready to publish</Status>
-                    </Card>
+                  <div className="space-y-4 max-w-2xl" data-testid="workflow-view">
+                    <div className="flex items-center justify-between gap-4">
+                      <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-linen/40">
+                        One complete workflow — the agents surface, I question, they challenge, I decide
+                      </p>
+                      <button
+                        data-testid="workflow-run-button"
+                        onClick={runWorkflow}
+                        disabled={wf.running}
+                        className="shrink-0 font-mono text-[11px] tracking-[0.18em] uppercase border border-tangelo text-tangelo px-4 py-2.5 hover:bg-tangelo hover:text-linen transition-colors disabled:opacity-40"
+                      >
+                        {wf.step === 0 ? "Run the workflow" : wf.running ? "Running…" : "Run it again"}
+                      </button>
+                    </div>
+
+                    {wf.step === 0 && !wf.running && (
+                      <p className="font-mono text-xs text-linen/50 italic border border-dashed border-linen/30 p-5">
+                        The desk is quiet. Press run to watch a customer story move from signal to shipped.
+                      </p>
+                    )}
+
+                    <AnimatePresence>
+                      {workflow.slice(0, wf.step).map((w, i) => (
+                        <motion.div
+                          key={w.t}
+                          initial={{ opacity: 0, y: 18, scale: 0.98 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                        >
+                          <Card from={`${w.from} — ${w.t}`} tone={w.tone}>
+                            <p>"{w.text}"</p>
+                            {i === workflow.length - 1 && (
+                              <motion.span
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.4 }}
+                                className={`inline-block font-mono text-[11px] tracking-[0.18em] uppercase px-3 py-1.5 ${
+                                  wf.shipped ? "bg-tangelo text-linen" : "bg-botticelli text-ink"
+                                }`}
+                                data-testid="workflow-status"
+                              >
+                                Status: {wf.shipped ? "Shipped" : "In production"}
+                              </motion.span>
+                            )}
+                          </Card>
+                        </motion.div>
+                      ))}
+                    </AnimatePresence>
+
+                    {wf.running && wf.step < workflow.length && (
+                      <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: [0.3, 1, 0.3] }}
+                        transition={{ repeat: Infinity, duration: 1.1 }}
+                        className="font-mono text-xs text-botticelli pl-1"
+                        data-testid="workflow-typing"
+                      >
+                        {workflow[wf.step].from} is writing…
+                      </motion.p>
+                    )}
                   </div>
                 )}
 

@@ -32,7 +32,9 @@ export const Nav = () => {
       <div className="flex items-center justify-between px-5 md:px-10 py-4">
         <a href="#top" data-testid="nav-home-link" className="flex items-center gap-3">
           <Mark />
-          <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-linen">Anushka Saha</span>
+          <span className={`font-mono text-[11px] tracking-[0.2em] uppercase transition-colors ${scrolled ? "text-linen" : "text-chocolate"}`}>
+            Anushka Saha
+          </span>
         </a>
         <nav className="hidden md:flex items-center gap-6">
           {links.map(([label, href]) => (
@@ -40,7 +42,9 @@ export const Nav = () => {
               key={href}
               href={href}
               data-testid={`nav-link-${label.toLowerCase().replace(/\s/g, "-")}`}
-              className="font-mono text-[11px] tracking-[0.18em] uppercase text-linen/60 hover:text-tangelo transition-colors"
+              className={`font-mono text-[11px] tracking-[0.18em] uppercase hover:text-tangelo transition-colors ${
+                scrolled ? "text-linen/60" : "text-chocolate/70"
+              }`}
             >
               {label}
             </a>

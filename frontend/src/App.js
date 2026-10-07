@@ -4,15 +4,15 @@ import "@/App.css";
 import { Grain, Marquee, Nav } from "@/components/Chrome";
 import Hero from "@/sections/Hero";
 import Built from "@/sections/Built";
+import WhyRole from "@/sections/WhyRole";
 import GrowthOS from "@/sections/GrowthOS";
-import Instinct from "@/sections/Instinct";
 import Scenarios from "@/sections/Scenarios";
-import Radar from "@/sections/Radar";
 import ProductComms from "@/sections/ProductComms";
-import Writing from "@/sections/Writing";
+import Freudenberg from "@/sections/Freudenberg";
+import EditDemo from "@/sections/EditDemo";
+import NotShips from "@/sections/NotShips";
 import AgentDesk from "@/sections/AgentDesk";
 import Ops from "@/sections/Ops";
-import WhyRole from "@/sections/WhyRole";
 import PersonalStory from "@/sections/PersonalStory";
 import Anniversary from "@/sections/Anniversary";
 import Final from "@/sections/Final";
@@ -50,15 +50,15 @@ function App() {
         ]}
       />
       <Built />
+      <WhyRole />
       <GrowthOS />
-      <Instinct />
       <Scenarios />
-      <Radar />
       <ProductComms />
-      <Writing />
+      <Freudenberg />
+      <EditDemo />
+      <NotShips />
       <AgentDesk />
       <Ops />
-      <WhyRole />
       <PersonalStory />
       <Marquee
         tone="dark"
