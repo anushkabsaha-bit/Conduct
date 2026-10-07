@@ -3,47 +3,50 @@ import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "../components/Shared";
 import { Mark } from "../components/Chrome";
 
-const lines = [
-  ["I've built audiences.", "text-linen"],
-  ["I've built systems.", "text-linen"],
-  ["I've built communities.", "text-linen"],
-  ["I've built slightly ridiculous things.", "outline-text-linen"],
-];
-
 export default function Final() {
   return (
     <section id="final" data-testid="final-section" className="bg-ink px-5 md:px-10 pt-24 md:pt-32 pb-10">
-      <div className="mb-14 md:mb-20">
-        {lines.map(([text, tone], i) => (
-          <Reveal key={text} delay={i * 0.08}>
-            <p className={`font-display uppercase leading-[0.95] text-[8.5vw] md:text-[5.5vw] ${tone}`}>{text}</p>
-          </Reveal>
-        ))}
+      <div className="max-w-2xl space-y-6 mb-16 md:mb-24">
+        <Reveal>
+          <p className="font-mono text-sm md:text-base leading-relaxed text-linen/90">
+            I have been looking at Conduct for a while. Long enough that I kept catching myself thinking about what I'd
+            do if I were actually there. What I'd ask. What I'd change. What I'd test. What I'd probably get wrong
+            first.
+          </p>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <p className="font-mono text-sm md:text-base leading-relaxed text-linen/90">
+            At some point, making a website about it seemed slightly more useful than continuing to think about it in my
+            Notes app. So I built this.
+          </p>
+        </Reveal>
+        <Reveal delay={0.14}>
+          <p className="font-serifit italic text-xl md:text-2xl leading-snug text-linen">
+            Anyway, I clearly want the job enough to build the website before I have it. I think the next sensible step
+            is probably a conversation.
+          </p>
+        </Reveal>
       </div>
 
-      <div className="grid md:grid-cols-12 gap-10 mb-16 md:mb-24">
-        <div className="md:col-span-7">
-          <Reveal>
-            <p className="font-serifit italic text-xl md:text-2xl text-linen max-w-xl">
-              Conduct has been the company I've wanted to build alongside for a while. Now I want to see what I could
-              build here.
-            </p>
-          </Reveal>
-        </div>
-        <div className="md:col-span-5 flex md:justify-end items-start">
-          <Reveal delay={0.12}>
-            <motion.a
-              href="mailto:Anushkabsaha@gmail.com"
-              data-testid="final-contact-cta"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="group inline-flex items-center gap-4 bg-tangelo text-linen px-8 py-6 font-display uppercase text-2xl md:text-3xl tracking-wide hover:bg-linen hover:text-chocolate transition-colors"
-            >
-              I'd love to talk
-              <ArrowUpRight className="w-7 h-7 transition-transform duration-300 group-hover:rotate-45" />
-            </motion.a>
-          </Reveal>
-        </div>
+      <div className="flex flex-wrap items-end justify-between gap-8 mb-16 md:mb-24">
+        <Reveal>
+          <p className="font-display uppercase leading-[0.9] text-[14vw] md:text-[9vw] text-linen">
+            conduct<span className="text-tangelo">/</span>
+          </p>
+          <p className="font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-linen/60 mt-3">Anushka Saha</p>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <motion.a
+            href="mailto:Anushkabsaha@gmail.com"
+            data-testid="final-contact-cta"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="group inline-flex items-center gap-4 bg-tangelo text-linen px-8 py-6 font-display uppercase text-2xl md:text-3xl tracking-wide hover:bg-linen hover:text-chocolate transition-colors"
+          >
+            Let's talk
+            <ArrowUpRight className="w-7 h-7 transition-transform duration-300 group-hover:rotate-45" />
+          </motion.a>
+        </Reveal>
       </div>
 
       <footer className="border-t border-linen/20 pt-6 flex flex-col md:flex-row md:items-center justify-between gap-4">

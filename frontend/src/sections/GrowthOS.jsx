@@ -33,7 +33,7 @@ const ideas = [
 export default function GrowthOS() {
   return (
     <section id="growth-os" data-testid="growth-os-section" className="bg-linen text-chocolate px-5 md:px-10 py-24 md:py-32">
-      <SectionHead no="05" kicker="The work sample">
+      <SectionHead no="04" kicker="The work sample">
         The Growth OS<span className="text-tangelo">.</span>
       </SectionHead>
 

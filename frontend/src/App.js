@@ -6,11 +6,11 @@ import Hero from "@/sections/Hero";
 import Built from "@/sections/Built";
 import WhyRole from "@/sections/WhyRole";
 import GrowthOS from "@/sections/GrowthOS";
-import Scenarios from "@/sections/Scenarios";
+import Problem from "@/sections/Problem";
 import ProductComms from "@/sections/ProductComms";
+import AgentDesk from "@/sections/AgentDesk";
 import Freudenberg from "@/sections/Freudenberg";
 import NotShips from "@/sections/NotShips";
-import AgentDesk from "@/sections/AgentDesk";
 import Ops from "@/sections/Ops";
 import PersonalStory from "@/sections/PersonalStory";
 import Anniversary from "@/sections/Anniversary";
@@ -51,11 +51,11 @@ function App() {
       <Built />
       <WhyRole />
       <GrowthOS />
-      <Scenarios />
+      <Problem />
       <ProductComms />
+      <AgentDesk />
       <Freudenberg />
       <NotShips />
-      <AgentDesk />
       <Ops />
       <PersonalStory />
       <Marquee

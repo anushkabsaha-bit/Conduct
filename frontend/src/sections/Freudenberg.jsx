@@ -1,3 +1,4 @@
+import { Minus } from "lucide-react";
 import { Reveal, SectionHead, Tag } from "../components/Shared";
 
 const notes = [
@@ -33,55 +34,69 @@ const people = [
     who: "Product",
     qs: [
       "What exactly changed?",
-      "What can the new capability do that could not be done before?",
-      "What is technically difficult?",
-      "What part are you most proud of?",
-      "What would be easy for someone outside the team to misunderstand?",
+      "What problem were you trying to solve?",
+      "What was difficult before?",
+      "What surprised you?",
+      "What would you want a CIO to understand?",
     ],
   },
   {
     who: "Engineering",
     qs: [
-      "What is actually happening underneath this?",
-      "What sources does the system use?",
-      "How is the relationship between process and system reality represented?",
-      "What is genuinely new?",
-      "What should I absolutely not oversimplify?",
+      "What is actually happening under the hood?",
+      "What part of this would another engineer find interesting?",
+      "What would be easy for me to explain badly?",
+      "What can we actually talk about publicly?",
     ],
   },
   {
     who: "Customer / Freudenberg",
     label: "Questions I would ask, if access and approval existed.",
     qs: [
-      "What was happening before?",
-      "Where did documentation stop being useful?",
-      "What did you actually need?",
-      "What would make this useful in practice?",
-      "What surprised you?",
-      "What would you want another enterprise team to understand?",
+      "What was painful before?",
+      "What changed?",
+      "What does this make easier?",
+      "Who feels that difference day to day?",
+      "What would you want another team to understand about this?",
     ],
   },
 ];
 
-const outputs = [
-  "Long-form product story",
-  "LinkedIn post",
-  "Short video",
-  "Engineer explanation",
-  "Founder perspective",
-  "Customer story, if approved",
-  "Sales enablement version",
+const planRows = [
+  ["Primary audience", "Enterprise / CIO / IT leadership"],
+  ["Who else might care", "Practitioners, engineers, general tech audience"],
+  ["The story might be", "The business changing faster than the documents describing it"],
+  ["Most interesting opening", "The wrongness of a perfectly written document"],
+  ["What proof do we have", "Only what Conduct has said publicly"],
+  ["Still needs verifying", "Customer experience, technical detail, claims"],
 ];
 
+const outputs = ["LinkedIn", "Customer story", "Product explainer", "Technical deep dive", "Founder / product POV", "Sales material", "Event material"];
+
 const channels = [
-  ["Conduct website", "Own the full explanation."],
-  ["LinkedIn", "Create the first point of interest."],
-  ["Founder / leadership LinkedIn", "Add a point of view."],
-  ["Engineer / technical channel", "Explain what is technically interesting."],
-  ["Sales", "Give the commercial team something useful to send."],
-  ["Event / talk", "Turn the product problem into a discussion."],
-  ["Recruiting", "Show what Conduct is building and what people get to work on."],
+  ["LinkedIn", "Reach and conversation"],
+  ["Website", "Deeper customer and product context"],
+  ["Customer advocacy", "Credibility"],
+  ["Sales", "A useful proof point to send"],
+  ["Event", "Useful if the technical story deserves discussion"],
 ];
+
+const prePublish = [
+  "Product review",
+  "Engineering review",
+  "Customer approval",
+  "Claims checked",
+  "Quotes approved",
+  "Screenshots approved",
+  "Final edit",
+  "Publish",
+];
+
+const FactTag = ({ children, tone = "text-tangelo" }) => (
+  <span className={`font-[Caveat] text-xl ${tone}`} style={{ rotate: "-2deg", display: "inline-block" }}>
+    {children}
+  </span>
+);
 
 const PostIt = ({ t, r, i }) => (
   <Reveal delay={Math.min(i * 0.05, 0.4)} y={14}>
@@ -101,12 +116,22 @@ export default function Freudenberg() {
         Freudenberg<span className="text-tangelo">.</span>
       </SectionHead>
 
-      <Reveal>
-        <p className="font-serifit italic text-xl md:text-2xl text-linen max-w-xl mb-14">
-          I'm not starting with the post. I'm starting with the question.
-        </p>
-      </Reveal>
+      <div className="max-w-2xl space-y-4 mb-14">
+        <Reveal>
+          <p className="font-mono text-sm md:text-base leading-relaxed text-linen/85">
+            So I tried it on something real. The Freudenberg collaboration seemed like a good place to start.
+          </p>
+        </Reveal>
+        <Reveal delay={0.06}>
+          <p className="font-serifit italic text-xl md:text-2xl text-linen">
+            I'm not starting with the post. I'm starting with the question.
+          </p>
+        </Reveal>
+      </div>
 
+      <Reveal>
+        <p className="font-[Caveat] text-xl text-botticelli mb-5" style={{ rotate: "-1deg" }}>questions, mostly:</p>
+      </Reveal>
       <div className="flex flex-wrap gap-4 md:gap-5 mb-16 md:mb-20" data-testid="freudenberg-notes">
         {notes.map((n, i) => (
           <PostIt key={n.t} t={n.t} r={n.r} i={i} />
@@ -115,11 +140,9 @@ export default function Freudenberg() {
 
       <div className="grid md:grid-cols-2 gap-3 mb-16 md:mb-20">
         <Reveal>
-          <div className="bg-linen text-chocolate p-6 md:p-8 h-full spotlight" data-testid="freudenberg-known">
-            <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-tangelo mb-5">
-              What I know from the public material
-            </p>
-            <div className="space-y-3">
+          <div className="bg-linen text-chocolate p-6 md:p-8 h-full spotlight relative" data-testid="freudenberg-known">
+            <FactTag>FACT · from public material</FactTag>
+            <div className="space-y-3 mt-4">
               {known.map((k) => (
                 <p key={k} className="font-mono text-sm leading-relaxed text-chocolate/90 border-l-2 border-botticelli pl-4">
                   {k}
@@ -130,8 +153,8 @@ export default function Freudenberg() {
         </Reveal>
         <Reveal delay={0.08}>
           <div className="border-2 border-dashed border-linen/40 p-6 md:p-8 h-full" data-testid="freudenberg-unknown">
-            <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-botticelli mb-5">What I don't know yet</p>
-            <div className="space-y-3">
+            <FactTag tone="text-botticelli">NEED TO VERIFY · don't know yet</FactTag>
+            <div className="space-y-3 mt-4">
               {unknown.map((u) => (
                 <p key={u} className="font-mono text-sm leading-relaxed text-linen/70 border-l-2 border-linen/25 pl-4">
                   {u}
@@ -147,10 +170,10 @@ export default function Freudenberg() {
 
       <Reveal>
         <div className="border-2 border-tangelo p-6 md:p-10 max-w-3xl mb-16 md:mb-20" data-testid="freudenberg-hypothesis">
-          <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-tangelo mb-4">My working hypothesis</p>
-          <p className="font-serifit italic text-xl md:text-2xl leading-snug text-linen mb-5">
-            Documentation is not interesting because it is documentation. The interesting problem is that businesses
-            change faster than the documents that describe them.
+          <FactTag>HYPOTHESIS · mine, not Conduct's</FactTag>
+          <p className="font-serifit italic text-xl md:text-2xl leading-snug text-linen mt-4 mb-5">
+            Documentation isn't interesting because it's documentation. The interesting problem might be that businesses
+            change faster than the documents describing them.
           </p>
           <p className="font-mono text-sm text-linen/75">
             I'd want to test whether this is actually the story before writing the final piece.
@@ -160,7 +183,10 @@ export default function Freudenberg() {
 
       <div className="mb-16 md:mb-20">
         <Reveal>
-          <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-linen/60 mb-6">Who I need before I write</p>
+          <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-linen/60 mb-2">Who I need to talk to</p>
+          <p className="font-[Caveat] text-xl text-botticelli mb-6" style={{ rotate: "1deg" }}>
+            trying to understand something before writing about it
+          </p>
         </Reveal>
         <div className="grid md:grid-cols-3 gap-3">
           {people.map((p, i) => (
@@ -185,19 +211,27 @@ export default function Freudenberg() {
       <div className="grid md:grid-cols-2 gap-3 mb-16 md:mb-20">
         <Reveal>
           <div className="bg-linen text-chocolate p-6 md:p-8 h-full spotlight" data-testid="freudenberg-plan">
-            <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-chocolate/50 mb-1">Notebook page</p>
-            <p className="font-display uppercase text-2xl md:text-3xl mb-6">Freudenberg story</p>
+            <FactTag>the board starts becoming a plan</FactTag>
+            <p className="font-display uppercase text-2xl md:text-3xl mt-3 mb-6">Freudenberg story</p>
             <div className="space-y-4 font-mono text-sm text-chocolate/90">
-              <p><span className="text-[10px] tracking-[0.18em] uppercase text-tangelo block mb-1">Primary audience</span>Enterprise / CIO / IT leadership</p>
-              <p><span className="text-[10px] tracking-[0.18em] uppercase text-tangelo block mb-1">Secondary</span>Enterprise practitioners, engineers, general technology audience</p>
-              <p><span className="text-[10px] tracking-[0.18em] uppercase text-tangelo block mb-1">The main story</span>Problem first. Product second. Evidence third. Implication fourth.</p>
+              {planRows.map(([k, v]) => (
+                <p key={k}>
+                  <span className="text-[10px] tracking-[0.18em] uppercase text-tangelo block mb-1">{k}</span>
+                  {v}
+                </p>
+              ))}
               <div>
-                <span className="text-[10px] tracking-[0.18em] uppercase text-tangelo block mb-2">What I would make</span>
-                <div className="space-y-1">
-                  {outputs.map((o, i) => (
-                    <p key={o}><span className="text-tangelo mr-2">{String(i + 1).padStart(2, "0")}</span>{o}</p>
+                <span className="text-[10px] tracking-[0.18em] uppercase text-tangelo block mb-2">What it might become</span>
+                <div className="flex flex-wrap gap-2">
+                  {outputs.map((o) => (
+                    <span key={o} className="border border-chocolate/40 px-2.5 py-1.5 text-xs uppercase tracking-[0.08em] text-chocolate/85">
+                      {o}
+                    </span>
                   ))}
                 </div>
+                <p className="font-[Caveat] text-xl text-chocolate/75 mt-4" style={{ rotate: "-1deg" }}>
+                  The format follows the story. Not everything becomes everything.
+                </p>
               </div>
             </div>
           </div>
@@ -205,8 +239,8 @@ export default function Freudenberg() {
         <Reveal delay={0.08}>
           <div className="border border-linen/30 h-full" data-testid="freudenberg-distribution">
             <div className="grid grid-cols-[1fr_1.4fr] border-b border-linen/30 bg-chocolate">
-              <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-botticelli px-5 py-3">Channel</p>
-              <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-botticelli px-5 py-3">Purpose</p>
+              <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-botticelli px-5 py-3">Where it could live</p>
+              <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-botticelli px-5 py-3">Why</p>
             </div>
             {channels.map(([c, p]) => (
               <div key={c} className="grid grid-cols-[1fr_1.4fr] border-b border-linen/20 last:border-b-0">
@@ -218,17 +252,22 @@ export default function Freudenberg() {
         </Reveal>
       </div>
 
-      <div className="grid md:grid-cols-12 gap-8 items-start">
+      <div className="grid md:grid-cols-12 gap-8 items-start mb-16 md:mb-20">
         <div className="md:col-span-8">
           <Reveal>
             <div className="flex flex-wrap items-center gap-3 mb-6">
               <Tag>Artefact</Tag>
               <Tag tone="outline-linen">Anushka's first draft</Tag>
-              <Tag tone="botticelli">Not official Conduct copy</Tag>
+              <Tag tone="botticelli">Not official Conduct copy · based only on publicly available information</Tag>
             </div>
           </Reveal>
           <Reveal delay={0.06}>
             <article className="bg-linen text-chocolate p-6 md:p-10 spotlight" data-testid="freudenberg-draft">
+              <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-chocolate/50 mb-2">First attempt</p>
+              <p className="font-mono text-base text-chocolate/50 line-through decoration-tangelo decoration-2 mb-6">
+                Process documentation is changing.
+              </p>
+              <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-tangelo mb-4">Better</p>
               <div className="space-y-4 font-mono text-sm md:text-base leading-relaxed text-chocolate/90">
                 <p className="text-lg text-chocolate">
                   Your process documentation can be perfectly written and still be wrong.
@@ -263,6 +302,26 @@ export default function Freudenberg() {
           </Reveal>
         </div>
       </div>
+
+      <Reveal>
+        <div className="border border-linen/30 p-6 md:p-8 max-w-3xl" data-testid="freudenberg-prepublish">
+          <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-linen/60 mb-5">
+            Before anything ships · the boring but important bit
+          </p>
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-x-6">
+            {prePublish.map((item, i) => (
+              <p key={item} className={`flex items-start gap-2.5 py-1.5 font-mono text-xs ${i === prePublish.length - 1 ? "text-tangelo" : "text-linen/55"}`}>
+                {i === prePublish.length - 1 ? (
+                  <span className="text-tangelo mt-0 shrink-0">→</span>
+                ) : (
+                  <Minus className="w-3.5 h-3.5 mt-0.5 shrink-0" />
+                )}
+                {item}
+              </p>
+            ))}
+          </div>
+        </div>
+      </Reveal>
     </section>
   );
 }

@@ -20,7 +20,7 @@ const slate = [
 export default function Ops() {
   return (
     <section id="ops" data-testid="ops-section" className="bg-linen text-chocolate px-5 md:px-10 py-24 md:py-32">
-      <SectionHead no="11" kicker="If I were running the desk">
+      <SectionHead no="10" kicker="If I were running the desk">
         A working week<span className="text-tangelo">.</span>
       </SectionHead>
 

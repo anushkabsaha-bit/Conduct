@@ -34,7 +34,7 @@ export default function Anniversary() {
   return (
     <>
       <section id="anniversary" data-testid="anniversary-section" className="bg-linen text-chocolate px-5 md:px-10 py-24 md:py-32">
-        <SectionHead no="13" kicker="One example of how I work">
+        <SectionHead no="12" kicker="One example of how I work">
           The anniversary<span className="text-tangelo">.</span>
         </SectionHead>
 
@@ -115,7 +115,7 @@ export default function Anniversary() {
       </section>
 
       <section id="dinner" data-testid="dinner-section" className="bg-chocolate text-linen px-5 md:px-10 py-24 md:py-32">
-        <SectionHead no="14" kicker="If it scales" dark>
+        <SectionHead no="13" kicker="If it scales" dark>
           The dinner<span className="text-tangelo">.</span>
         </SectionHead>
 

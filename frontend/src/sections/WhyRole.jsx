@@ -6,7 +6,7 @@ export default function WhyRole() {
   return (
     <>
       <section id="why" data-testid="why-role-section" className="bg-linen text-chocolate px-5 md:px-10 py-24 md:py-32">
-        <SectionHead no="03" kicker="Why this role">
+        <SectionHead no="02" kicker="Why this role">
           Why this role<span className="text-tangelo">.</span>
         </SectionHead>
 
@@ -42,7 +42,7 @@ export default function WhyRole() {
       </section>
 
       <section id="why-conduct" data-testid="why-conduct-section" className="bg-chocolate text-linen px-5 md:px-10 py-24 md:py-32">
-        <SectionHead no="04" kicker="Why Conduct" dark>
+        <SectionHead no="03" kicker="Why Conduct" dark>
           Why Conduct<span className="text-tangelo">.</span>
         </SectionHead>
 

@@ -5,19 +5,19 @@ const ideas = [
     name: "SAP Score",
     status: "Keep testing",
     tone: "text-botticelli border-botticelli",
-    why: "Memorable idea. Needs an audience and execution test before anyone books a photo booth.",
+    why: "Memorable and potentially very Conduct, but audience, location and execution still need testing.",
   },
   {
     name: "The internal meme format",
     status: "Kill",
     tone: "text-tangelo border-tangelo",
-    why: "Interesting internally. Weak reason for an external audience to care.",
+    why: "Amusing internally. No strong external reason to care.",
   },
   {
     name: "The practitioner dinner series",
     status: "Park",
     tone: "text-linen/80 border-linen/50",
-    why: "Good idea. Wrong moment.",
+    why: "Genuinely good idea. Simply wrong for the current moment.",
   },
 ];
 
@@ -43,8 +43,8 @@ export default function NotShips() {
       </div>
 
       <Reveal>
-        <p className="font-serifit italic text-xl md:text-2xl text-chocolate max-w-xl border-l-4 border-tangelo pl-5">
-          I'd rather kill an idea early than fall in love with it because I made it.
+        <p className="font-[Caveat] text-2xl md:text-3xl text-chocolate/85 max-w-xl" style={{ rotate: "-1deg" }}>
+          "I'd rather kill an idea early than fall in love with it because I made it."
         </p>
       </Reveal>
       <Reveal className="mt-5">

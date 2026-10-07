@@ -301,7 +301,7 @@ export default function Hero() {
                 className="w-full h-auto block"
               />
               <p className="font-[Caveat] text-sm md:text-base text-chocolate/80 text-center leading-tight mt-2">
-                Conduct has its fridge magnet. I have mine. This is a supper club I started.
+                Conduct has its fridge magnet. I have mine. Mine is a supper club I started.
               </p>
             </motion.div>
           </motion.div>

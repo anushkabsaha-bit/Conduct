@@ -3,11 +3,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Reveal, SectionHead } from "../components/Shared";
 
 const audiences = [
-  { who: "Engineer", q: "What is actually happening?", a: "Lead with what was hard and what is clever. The constraint nobody outside the room knows about." },
-  { who: "CIO", q: "Why should I care?", a: "Lead with what it costs when the documented process and the real system disagree." },
-  { who: "Customer", q: "What changes for me?", a: "Lead with the before and after they can actually feel. Their problem, their language." },
-  { who: "Partner", q: "Where does this fit?", a: "Lead with what we can say together that neither of us can say alone." },
-  { who: "Candidate", q: "What would I get to build?", a: "Lead with the problem they would get their hands on." },
+  { who: "Engineer", q: "How does it work?", a: "Lead with what was hard and what is clever. The constraint nobody outside the room knows about." },
+  { who: "CIO", q: "Why does this matter?", a: "Lead with what it costs when the documented process and the real system disagree." },
+  { who: "Customer", q: "What changed?", a: "Lead with the before and after they can actually feel. Their problem, their language." },
+  { who: "Candidate", q: "What kind of problems would I get to build?", a: "Lead with the problem they would get their hands on." },
+  { who: "Partner", q: "Why is this commercially useful?", a: "Lead with what we can say together that neither of us can say alone." },
 ];
 
 export default function ProductComms() {
@@ -15,7 +15,7 @@ export default function ProductComms() {
 
   return (
     <section id="product-comms" data-testid="product-comms-section" className="bg-linen text-chocolate px-5 md:px-10 py-24 md:py-32">
-      <SectionHead no="07" kicker="Same product, different person">
+      <SectionHead no="06" kicker="Same product, different person">
         Same product, different person<span className="text-tangelo">.</span>
       </SectionHead>
 

@@ -9,7 +9,7 @@ const POLAROID_URL =
 export default function PersonalStory() {
   return (
     <section id="community-story" data-testid="personal-story-section" className="bg-ink border-y border-linen/15 px-5 md:px-10 py-24 md:py-32">
-      <SectionHead no="12" kicker="Community" dark>
+      <SectionHead no="11" kicker="Community" dark>
         Community<span className="text-tangelo">.</span>
       </SectionHead>
 
@@ -20,8 +20,8 @@ export default function PersonalStory() {
               <p className="font-display text-6xl md:text-7xl leading-[0.85] text-tangelo">70K</p>
               <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-linen/50 mt-2 mb-4">Wattpad readers</p>
               <p className="font-mono text-sm leading-relaxed text-linen/85 max-w-md">
-                I started writing because I loved building fictional worlds. Then I became interested in why people came
-                back.
+                I started writing through a creative writing course. I experimented with content and cadence. It grew,
+                organically, to around 70,000 readers.
               </p>
             </div>
           </Reveal>
@@ -29,10 +29,15 @@ export default function PersonalStory() {
             <div>
               <p className="font-display uppercase text-2xl md:text-3xl text-linen mb-3">Press-on nails</p>
               <p className="font-mono text-sm leading-relaxed text-linen/85 max-w-md">
-                I tried taking the world outside the page. It didn't last, and that was the lesson: people came for the
-                stories.
+                I even made press-on nails inspired by the characters, to see whether the world could exist beyond the
+                page. It did not last particularly long. Useful lesson: people were there for the stories.
               </p>
             </div>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <p className="font-serifit italic text-xl text-linen/85 max-w-md">
+              When I wanted a community, I tended to make one.
+            </p>
           </Reveal>
         </div>
 
@@ -61,12 +66,6 @@ export default function PersonalStory() {
           </Reveal>
         </div>
       </div>
-
-      <Reveal className="mt-12">
-        <p className="font-mono text-sm text-linen/70 max-w-xl">
-          Different projects. Same question: why do people come back?
-        </p>
-      </Reveal>
     </section>
   );
 }
