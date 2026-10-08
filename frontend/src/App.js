@@ -10,10 +10,9 @@ import Problem from "@/sections/Problem";
 import ProductComms from "@/sections/ProductComms";
 import AgentDesk from "@/sections/AgentDesk";
 import Freudenberg from "@/sections/Freudenberg";
-import NotShips from "@/sections/NotShips";
+import ExperimentLab from "@/sections/ExperimentLab";
 import Ops from "@/sections/Ops";
 import PersonalStory from "@/sections/PersonalStory";
-import Anniversary from "@/sections/Anniversary";
 import Final from "@/sections/Final";
 
 function App() {
@@ -55,14 +54,13 @@ function App() {
       <ProductComms />
       <AgentDesk />
       <Freudenberg />
-      <NotShips />
+      <ExperimentLab />
       <Ops />
       <PersonalStory />
       <Marquee
         tone="dark"
         items={["Observe", "Analyse", "Find", "Create", "Challenge", "Execute", "Measure", "Learn", "Repeat"]}
       />
-      <Anniversary />
       <Final />
     </div>
   );

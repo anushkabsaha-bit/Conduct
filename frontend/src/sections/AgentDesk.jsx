@@ -8,8 +8,6 @@ const views = [
   { id: "today", label: "Today", agent: "Ana" },
   { id: "product", label: "Product", agent: "Edith" },
   { id: "opportunities", label: "Opportunities", agent: "Catherine" },
-  { id: "campaigns", label: "Campaigns", agent: "Diana" },
-  { id: "experiments", label: "Experiments", agent: "Black Box" },
 ];
 
 const roster = [
@@ -303,33 +301,6 @@ export default function AgentDesk() {
                   </div>
                 )}
 
-                {view === "campaigns" && (
-                  <div className="max-w-2xl space-y-4">
-                    <Card from="The idea on the table">
-                      <p className="font-display uppercase text-xl md:text-2xl text-linen">SAP Score · a photo booth at London Tech Week</p>
-                    </Card>
-                    <Card from="Diana · creative strategy and stress test" tone="agent">
-                      <p>"Could be good. Could also be trying too hard. I'd kill it if the audience doesn't get the joke in three seconds."</p>
-                    </Card>
-                    <Card from="Anushka · the operator" tone="operator">
-                      <p>"Then we test the comprehension first."</p>
-                    </Card>
-                  </div>
-                )}
-
-                {view === "experiments" && (
-                  <div className="max-w-2xl space-y-4">
-                    <Card from="Black Box" tone="agent">
-                      <p className="text-linen/85">
-                        "Script ready. Three participants to recruit: an engineer, an enterprise professional, someone
-                        completely outside the space. Ten minutes of Conduct material each."
-                      </p>
-                      <p className="inline-block font-mono text-[11px] tracking-[0.18em] uppercase bg-botticelli text-ink px-3 py-1.5">
-                        Status: ready to run
-                      </p>
-                    </Card>
-                  </div>
-                )}
               </motion.div>
             </AnimatePresence>
           </div>

@@ -8,21 +8,8 @@ const stats = [
   { n: "251", l: "reposts" },
 ];
 
-const blackBoxQs = [
-  "What does Conduct do?",
-  "Who is it for?",
-  "What problem does it solve?",
-  "Why does it matter?",
-  "What do you remember?",
-  "What confused you?",
-  "What made you curious?",
-];
-
 const ideas = [
   "Corporate Crime Scenes",
-  "Black Box",
-  "SAP Score",
-  "Founder / Conduct voice",
   "LinkedIn video",
   "Substack / Medium",
   "Customer → Product → Story",
@@ -74,7 +61,7 @@ export default function GrowthOS() {
         <p className="font-mono text-xs text-chocolate/60 mb-16 md:mb-20">Roughly 8,375 interactions in total.</p>
       </Reveal>
 
-      <div className="grid md:grid-cols-12 gap-10 mb-16 md:mb-20">
+      <div className="grid md:grid-cols-12 gap-10 mb-16 md:mb-20 items-start">
         <div className="md:col-span-5">
           <Reveal>
             <div className="border-2 border-chocolate p-6 md:p-8" data-testid="outsider-test">
@@ -92,32 +79,22 @@ export default function GrowthOS() {
         </div>
         <div className="md:col-span-7">
           <Reveal>
-            <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-tangelo mb-4">
-              Black Box · give someone Conduct material for ten minutes, then ask
-            </p>
-          </Reveal>
-          <div className="border-t border-chocolate/30">
-            {blackBoxQs.map((q, i) => (
-              <Reveal key={q} delay={Math.min(i * 0.04, 0.28)} y={10}>
-                <p className="font-mono text-sm text-chocolate/90 py-3 border-b border-chocolate/30">
-                  <span className="text-tangelo mr-3">Q{i + 1}</span>
-                  {q}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal delay={0.15}>
-            <p className="font-mono text-xs text-chocolate/60 mt-5">
-              Then score it: do they understand, remember, care, act?
-            </p>
+            <div className="bg-chocolate text-linen p-6 md:p-8 h-full">
+              <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-botticelli mb-4">What that led to</p>
+              <p className="font-mono text-sm leading-relaxed text-linen/90 mb-5">
+                If comprehension is the problem, posting more doesn't fix it. The OS became a set of questions,
+                experiments and working habits for closing that gap.
+              </p>
+              <a href="#lab" data-testid="growth-os-lab-link" className="font-mono text-xs tracking-[0.16em] uppercase text-tangelo underline-grow">
+                The experiments I'd run next live in the Lab ↓
+              </a>
+            </div>
           </Reveal>
         </div>
       </div>
 
       <Reveal>
-        <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-chocolate/60 mb-5">
-          What's inside the OS
-        </p>
+        <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-chocolate/60 mb-5">What else is inside the OS</p>
       </Reveal>
       <Reveal delay={0.08}>
         <div className="flex flex-wrap gap-2" data-testid="growth-os-ideas">

@@ -14,7 +14,7 @@ const links = [
   ["Growth OS", "#growth-os"],
   ["Freudenberg", "#freudenberg"],
   ["The Desk", "#agents"],
-  ["Anniversary", "#anniversary"],
+  ["Lab", "#lab"],
 ];
 
 export const Nav = () => {

@@ -250,8 +250,8 @@ export default function Hero() {
               id="blackbox"
               testid="scrap-black-box"
               title="Black Box"
-              note="do people actually understand Conduct?"
-              annotation="10 unfamiliar people. Could they explain it?"
+              note="can anyone explain Conduct?"
+              annotation="The full experiment lives in the Lab ↓"
               rotate={2}
               delay={1.9}
               active={activeScrap === "blackbox"}
